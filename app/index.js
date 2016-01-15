@@ -15,7 +15,7 @@ let {
   View,
 } = React;
 
-class Application extends React.Component {
+class reactProject extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -45,4 +45,4 @@ let styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Application', () => Application);
+AppRegistry.registerComponent('reactProject', () => reactProject);
