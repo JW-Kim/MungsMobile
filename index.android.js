@@ -7,114 +7,46 @@
 var React = require('react-native');
 var {
   AppRegistry,
-  Image,
   StyleSheet,
   Text,
   View,
-  ListView,
 } = React;
 
-var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
-var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
-var PAGE_SIZE = 25;
-var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
-var REQUEST_URL = API_URL + PARAMS;
-
-var reactProject = React.createClass({
-
-  getInitialState: function(){
-    return {
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,
-      }),
-      loaded: false,
-    };
-  },
-
-  fetchData: function(){
-    fetch(REQUEST_URL)
-      .then((response) => response.json())
-      .then((responseData) => {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(responseData.Movies),
-          loaded: true,
-        });
-      })
-      .done();
-  },
-
+var Application = React.createClass({
   render: function() {
-    if(!this.state.loaded){
-      return this.renderLoadingView();
-    }
-
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderMovie}
-        style={styles.listView}
-      />
-    );
-  },
-
-  renderLoadingView: function(){
-    return(
       <View style={styles.container}>
-        <Text>
-          Loading movies...
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+          Shake or press menu button for dev menu
         </Text>
       </View>
-    )
-  },
-
-  renderMovie: function(){
-    return(
-      <View style={styles.container}>
-        <Image
-          source={{uri: movie.posters.thumbnail}}
-          style={styles.thumbnail}
-        />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.year}>{movie.year}</Text>
-        </View>
-      </View>
-    )
+    );
   }
 });
 
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-
-  thumbnail: {
-    width: 53,
-    height: 81
-  },
-
-  rightContainer: {
-    flex: 1
-  },
-
-  title: {
+  welcome: {
     fontSize: 20,
-    marginBottom: 8,
-    textAlign: 'center'
+    textAlign: 'center',
+    margin: 10,
   },
-
-  year: {
-    textAlign: 'center'
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
-
-  listView: {
-    paddingTop: 20,
-    backgroundColor: '#F5FCFF'
-  }
 });
 
-AppRegistry.registerComponent('reactProject', () => reactProject);
+AppRegistry.registerComponent('Application', () => Application);
