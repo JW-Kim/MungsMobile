@@ -4,8 +4,8 @@
 
 'use strict';
 
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/AppConstants';
+import AppDispatcher from '../dispatcher/appDispatcher';
+import AppConstants from '../constants/appConstants';
 
 let AppActions = {
 

@@ -4,9 +4,9 @@
 
 'use strict';
 
-import AppDispatcher from '../dispatcher/AppDispatcher';
+import AppDispatcher from '../dispatcher/appDispatcher';
 import { EventEmitter }  from 'events';
-import AppConstants  from '../constants/AppConstants';
+import AppConstants  from '../constants/appConstants';
 import _ from 'lodash';
 
 let CHANGE_EVENT = 'change';

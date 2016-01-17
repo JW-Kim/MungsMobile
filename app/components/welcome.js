@@ -5,8 +5,8 @@
 'use strict';
 
 import React from 'react-native';
-import AppStore from '../stores/AppStore';
-import AppActions from '../actions/AppActions';
+import AppStore from '../stores/appStore';
+import AppActions from '../actions/appActions';
 
 let {
     StyleSheet,
