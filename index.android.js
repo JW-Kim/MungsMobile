@@ -2,45 +2,41 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
+
 'use strict';
 
-var React = require('react-native');
-var {
+import React from 'react-native';
+import Welcome from './app/components/welcome';
+
+let {
   AppRegistry,
   StyleSheet,
   Text,
   View,
 } = React;
 
-var reactProject = React.createClass({
-  render: function() {
+class reactProject extends React.Component {
+  render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+
+        <Welcome />
+
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
+          Press Cmd+R to reload,{'\n'}
+          Cmd+D or shake for dev menu
         </Text>
       </View>
     );
   }
-});
+};
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
   instructions: {
     textAlign: 'center',
