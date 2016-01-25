@@ -11,6 +11,7 @@ let AppActions = {
 
   setWelcomeMessage(message) {
 
+
     // do some async stuff here and dispatch to stores
 
     AppDispatcher.dispatch({
