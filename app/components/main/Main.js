@@ -5,20 +5,21 @@ var {View, Text, StyleSheet, TouchableHighlight, DrawerLayoutAndroid} = React;
 var Button = require('react-native-button');
 var Actions = require('react-native-router-flux').Actions;
 
+var Nav = require('./nav/Nav');
+
 class Main extends React.Component {
     render(){
-      var navigationView = (
-        <View style={{flex: 1, backgroundColor: '#fff'}}>
-          <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>Navi</Text>
-        </View>
+      var renderNavigationView = (
+        <Nav/>
       );
+
       return (
         <DrawerLayoutAndroid
           drawerWidth={300}
           drawerPosition={DrawerLayoutAndroid.positions.Left}
-          renderNavigationView={() => navigationView}>
+          renderNavigationView={() => renderNavigationView}>
           <View style={{flex: 1, alignItems: 'center'}}>
-            <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>main</Text>
+            <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>메인</Text>
             <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>page!</Text>
           </View>
         </DrawerLayoutAndroid>
