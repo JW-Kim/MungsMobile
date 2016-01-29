@@ -21,6 +21,7 @@ class Main extends React.Component {
           <View style={{flex: 1, alignItems: 'center'}}>
             <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>메인</Text>
             <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>page!</Text>
+            <Button onPress={Actions.sampleImage}>image</Button>
           </View>
         </DrawerLayoutAndroid>
       );
