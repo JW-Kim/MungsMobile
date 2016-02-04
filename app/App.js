@@ -18,18 +18,29 @@ class TabIcon extends React.Component {
 class Header extends React.Component {
     render(){
         return (
-            <View style={styles.header}>
-                <Image
-                   style={{
-                       width: 25,
-                       height: 25,
-                       backgroundColor: 'transparent',
-                       marginRight: 2,
-                       marginLeft: 2,
-                   }}
-                   source={require('../assets/img/header1.jpg')}
-                />
-                <Text >Header</Text>
+            <View style={styles.container}>
+                <View style={styles.headerContainer}>
+                    <Image
+                       style={styles.menuImg}
+                       source={require('../assets/img/menu.jpg')}
+                    />
+                    <Text style={styles.title}>블루 멍스</Text>
+                    <Image
+                       style={styles.menuImg}
+                       source={require('../assets/img/setting.jpg')}
+                    />
+                </View>
+                <View style={styles.tabContainer}>
+                    <View style={styles.tabMenu}>
+                        <Text style={styles.tabTitle}>미용</Text>
+                    </View>
+                    <View style={styles.tabMenu}>
+                        <Text style={styles.tabTitle}>교배</Text>
+                    </View>
+                    <View style={styles.tabMenu}>
+                        <Text style={styles.tabTitle}>병원</Text>
+                    </View>
+                </View>
             </View>
         );
     }
@@ -52,8 +63,48 @@ export default class App extends React.Component {
 }
 
 var styles = StyleSheet.create({
-    header : {
-        height : 25
-        ,backgroundColor: '003399'
+
+    container : {
+         flexDirection: 'column'
+    }
+
+    ,headerContainer : {
+        flexDirection: 'row'
+        ,alignItems: 'center'
+        ,height : 30
+        ,backgroundColor: '	#000000'
+    }
+
+    ,menuImg : {
+        width: 25
+        ,height: 25
+        ,backgroundColor: 'transparent'
+        ,marginRight: 2
+        ,marginLeft: 2
+    }
+
+    ,title : {
+        flex: 1
+        ,color:'#fff'
+        ,textAlign:'center'
+        ,fontWeight:'bold'
+    }
+
+    ,tabContainer : {
+        flexDirection: 'row'
+        ,alignItems: 'center'
+        ,height : 30
+        ,backgroundColor: '#D8D8D8'
+    }
+
+    ,tabMenu : {
+        flex : 1
+    }
+
+    ,tabTitle : {
+        flex: 1
+        ,color:'#000000'
+        ,textAlign:'center'
+        ,fontWeight:'bold'
     }
 })
