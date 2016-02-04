@@ -56,8 +56,4 @@ var styles = StyleSheet.create({
         height : 25
         ,backgroundColor: '003399'
     }
-
-    headerText : {
-        position : center
-    }
 })
