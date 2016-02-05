@@ -30,17 +30,6 @@ class Header extends React.Component {
                        source={require('../assets/img/setting.jpg')}
                     />
                 </View>
-                <View style={styles.tabContainer}>
-                    <View style={styles.tabMenu}>
-                        <Text style={styles.tabTitle}>미용</Text>
-                    </View>
-                    <View style={styles.tabMenu}>
-                        <Text style={styles.tabTitle}>교배</Text>
-                    </View>
-                    <View style={styles.tabMenu}>
-                        <Text style={styles.tabTitle}>병원</Text>
-                    </View>
-                </View>
             </View>
         );
     }
@@ -86,24 +75,6 @@ var styles = StyleSheet.create({
     ,title : {
         flex: 1
         ,color:'#fff'
-        ,textAlign:'center'
-        ,fontWeight:'bold'
-    }
-
-    ,tabContainer : {
-        flexDirection: 'row'
-        ,alignItems: 'center'
-        ,height : 30
-        ,backgroundColor: '#D8D8D8'
-    }
-
-    ,tabMenu : {
-        flex : 1
-    }
-
-    ,tabTitle : {
-        flex: 1
-        ,color:'#000000'
         ,textAlign:'center'
         ,fontWeight:'bold'
     }
