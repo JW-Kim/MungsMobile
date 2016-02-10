@@ -1,36 +1,16 @@
 'use strict';
 
 var React = require('react-native');
-var {AppRegistry, Navigator, StyleSheet,Text,View, Image} = React;
+var {AppRegistry, Navigator, StyleSheet,Text,View, Image, TouchableHighlight} = React;
 var {Router, Route, Schema, Animations, TabBar} = require('react-native-router-flux');
 var Actions = require('react-native-router-flux').Actions;
 var Main = require('./components/main/Main');
-var SampleImage = require('./components/SampleImage')
+var SampleImage = require('./components/SampleImage');
 
 class TabIcon extends React.Component {
     render(){
         return (
             <Text style={{color: this.props.selected ? 'red' :'black'}}>{this.props.title}</Text>
-        );
-    }
-}
-
-class Header extends React.Component {
-    render(){
-        return (
-            <View style={styles.container}>
-                <View style={styles.headerContainer}>
-                    <Image
-                       style={styles.menuImg}
-                       source={require('../assets/img/menu.jpg')}
-                    />
-                    <Text style={styles.title}>블루 멍스</Text>
-                    <Image
-                       style={styles.menuImg}
-                       source={require('../assets/img/setting.jpg')}
-                    />
-                </View>
-            </View>
         );
     }
 }
@@ -44,38 +24,10 @@ export default class App extends React.Component {
                 <Schema name="withoutAnimation"/>
                 <Schema name="tab" type="switch" icon={TabIcon} />
 
-                <Route name="main" header={Header} component={Main} wrapRouter={true} title="Main" hideNavBar={true} initial={true}/>
+                <Route name="main" component={Main} wrapRouter={true} title="Main" hideNavBar={true} initial={true}/>
                 <Route name="sampleImage" component={SampleImage} title="SampleImage"/>
             </Router>
         );
     }
 }
 
-var styles = StyleSheet.create({
-
-    container : {
-         flexDirection: 'column'
-    }
-
-    ,headerContainer : {
-        flexDirection: 'row'
-        ,alignItems: 'center'
-        ,height : 30
-        ,backgroundColor: '	#000000'
-    }
-
-    ,menuImg : {
-        width: 25
-        ,height: 25
-        ,backgroundColor: 'transparent'
-        ,marginRight: 2
-        ,marginLeft: 2
-    }
-
-    ,title : {
-        flex: 1
-        ,color:'#fff'
-        ,textAlign:'center'
-        ,fontWeight:'bold'
-    }
-})
