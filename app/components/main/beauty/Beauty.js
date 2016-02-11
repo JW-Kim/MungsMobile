@@ -10,7 +10,6 @@ var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = API_URL + PARAMS;
 
 class Beauty extends React.Component {
-
     constructor(props, context) {
         super(props, context);
 
@@ -76,7 +75,6 @@ class Beauty extends React.Component {
             </View>
         );
     };
-
 }
 
 var styles = StyleSheet.create({
