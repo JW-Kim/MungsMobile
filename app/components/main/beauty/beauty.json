@@ -1,9 +1,8 @@
 [
   {
-    beautyId : "1",
-    beautyType : "A",
-    beautySancStatCd : 'S',   //결재중: C , 결재완료: S
-
+    "beautyId" : "1",
+    "beautyType" : "A",
+    "beautySancStatCd" : "S"   //결재중: C , 결재완료: S
   }
 
 ]
