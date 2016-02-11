@@ -4,16 +4,13 @@ var React = require('react-native');
 var {View, Text, StyleSheet, TouchableHighlight, DrawerLayoutAndroid} = React;
 var Button = require('react-native-button');
 var Actions = require('react-native-router-flux').Actions;
-import Tabbar, { Tab, RawContent, IconWithBar, glypyMapMaker } from 'react-native-tabbar';
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 
 var Nav = require('./Nav');
 var Header = require('./Header');
-
-const glypy = glypyMapMaker({
-  Beauty: 'e900',
-  Mating: 'e901',
-  Hospital: 'e902'
-});
+var Beauty = require('./beauty/Beauty');
+var Hotel = require('./hotel/Hotel');
+var Hospital = require('./hospital/Hospital');
 
 class Main extends React.Component {
 
@@ -53,32 +50,11 @@ class Main extends React.Component {
           drawerPosition={DrawerLayoutAndroid.positions.Left}
           renderNavigationView={() => renderNavigationView}>
             <Header openDrawer={()=>this.refs['DRAWER'].openDrawer()}/>
-            <Tabbar ref="myTabbar" barColor={'#383838'}>
-                <Tab name="beauty">
-                    <IconWithBar label="미용" type={glypy.Beauty} from={'icomoon'}/>
-                    <RawContent>
-                        <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent:'center' }}>
-                          <Text onPress={()=>this.openDrawer()}>미용</Text>
-                        </View>
-                    </RawContent>
-                </Tab>
-                <Tab name="mating">
-                    <IconWithBar label="교배" type={glypy.Mating} from={'icomoon'}/>
-                    <RawContent>
-                        <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent:'center' }} >
-                            <Text onPress={()=>this.tabbarToggle()}>교배</Text>
-                        </View>
-                    </RawContent>
-                </Tab>
-                <Tab name="hospital">
-                    <IconWithBar label="병원" type={glypy.Hospital} from={'icomoon'}/>
-                    <RawContent>
-                        <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent:'center' }}>
-                            <Text onPress={()=>console.log('stats')}>병원</Text>
-                        </View>
-                    </RawContent>
-                </Tab>
-            </Tabbar>
+            <ScrollableTabView>
+                <Beauty tabLabel="미용" />
+                <Hotel tabLabel="호텔" />
+                <Hospital tabLabel="병원" />
+            </ScrollableTabView>
         </DrawerLayoutAndroid>
       );
     }
