@@ -69,15 +69,26 @@ class Beauty extends React.Component {
     };
 
     renderBeauty(beauty) {
+
         return (
             <View style={styles.container}>
-                <Image
-                source={{uri:beauty.filPath}}
-                style={styles.thumbnail}
-                />
+                <View style={styles.topContainer}>
+                    <Image
+                    source={require('../../../../assets/img/dog1.jpg')}
+                    style={styles.thumbnail}
+                    />
+                    <Image
+                    source={require('../../../../assets/img/dog2.jpg')}
+                    style={styles.thumbnail}
+                    />
+                    <Image
+                    source={require('../../../../assets/img/dog3.jpg')}
+                    style={styles.thumbnail}
+                    />
+                </View>
                 <View style={styles.rightContainer}>
-                    <Text style={styles.title}>{beauty.type}</Text>
-                    <Text style={styles.year}>{beauty.sancStatCd}</Text>
+                    <Text style={styles.title}>{beauty.type == 'D' ? '개' : '고양이'} ({beauty.weight})</Text>
+                    <Text style={styles.year}>{beauty.etc}</Text>
                 </View>
             </View>
         );
@@ -88,10 +99,17 @@ var styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        marginTop: 10,
+        borderColor: '#707070',
+        borderWidth: 1,
+        padding: 10
+    },
+
+    topContainer: {
+        flexDirection: 'row'
     },
 
     rightContainer: {
@@ -109,12 +127,11 @@ var styles = StyleSheet.create({
     },
 
     thumbnail: {
-        width: 53,
-        height: 81,
+        flex: 1
     },
 
     listView: {
-        backgroundColor: '#F5FCFF',
+
     },
 })
 
