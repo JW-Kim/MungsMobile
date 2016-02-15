@@ -1,12 +1,14 @@
 'use strict';
 
 var React = require('react-native');
+var Beauties = require('./beauty.json');
 var {StyleSheet, ScrollView, View, Text, ListView, Image} = React;
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
-var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
+var API_URL = 'beauty.json';
 var PAGE_SIZE = 25;
 var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
+var PARAMS = '';
 var REQUEST_URL = API_URL + PARAMS;
 
 class Beauty extends React.Component {
@@ -22,15 +24,20 @@ class Beauty extends React.Component {
     };
 
     componentDidMount() {
-        this.fetchData();
+        //this.fetchData();
+        this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(Beauties.beauties),
+            loaded: true,
+        });
     };
 
     fetchData() {
-        fetch(REQUEST_URL)
-        .then((response) => response.json())
+        fetch(REQUEST_URL,{
+            method: 'GET'
+        }).then((response) => response.json())
         .then((responseData) => {
             this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+                dataSource: this.state.dataSource.cloneWithRows(responseData.beauties),
                 loaded: true,
             });
         })
@@ -45,7 +52,7 @@ class Beauty extends React.Component {
         return (
             <ListView
                 dataSource={this.state.dataSource}
-                renderRow={this.renderMovie}
+                renderRow={this.renderBeauty}
                 style={styles.listView}
             />
         );
@@ -55,22 +62,22 @@ class Beauty extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>
-                    Loading movies...
+                    Loading Beauty...
                 </Text>
             </View>
         );
     };
 
-    renderMovie(movie) {
+    renderBeauty(beauty) {
         return (
             <View style={styles.container}>
                 <Image
-                source={{uri: movie.posters.thumbnail}}
+                source={{uri:beauty.filPath}}
                 style={styles.thumbnail}
                 />
                 <View style={styles.rightContainer}>
-                    <Text style={styles.title}>{movie.title}</Text>
-                    <Text style={styles.year}>{movie.year}</Text>
+                    <Text style={styles.title}>{beauty.type}</Text>
+                    <Text style={styles.year}>{beauty.sancStatCd}</Text>
                 </View>
             </View>
         );

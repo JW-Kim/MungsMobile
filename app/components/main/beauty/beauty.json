@@ -1,8 +1,51 @@
-[
-  {
-    "beautyId" : "1",
-    "beautyType" : "A",
-    "beautySancStatCd" : "S"   //결재중: C , 결재완료: S
-  }
+{
+  "total": "10",
+  "beauties": [
+    {
+      "id": "1",
+      "type": "D",
+      "weight": "3.5",
+      "address": "서울시 강동구",
+      "sancStatCd": "S",  //결재중: C , 결재완료: S
+      "etc": "이쁘게 짤라 주세요",
+      "filPath": "../../../../assets/img/dog1.jpg"
+    },
+    {
+      "id": "2",
+      "type": "C",
+      "weight": "2.5",
+      "address": "서울시 강동구",
+      "sancStatCd": "C",
+      "etc": "고양이에요",
+      "filPath": "../../../../assets/img/cat1.jpg"
+    },
+    {
+      "id": "3",
+      "type": "C",
+      "weight": "1.5",
+      "address": "서울시 강동구",
+      "sancStatCd": "C",
+      "etc": "야옹이에요",
+      "filPath": "../../../../assets/img/cat2.jpg"
+    },
+    {
+      "id": "4",
+      "type": "D",
+      "weight": "3.5",
+      "address": "서울시 강동구",
+      "sancStatCd": "S",
+      "etc": "이쁘게 짤라 주세요",
+      "filPath": "../../../../assets/img/dog2.jpg"
+    },
+    {
+      "id": "5",
+      "type": "D",
+      "weight": "4.5",
+      "address": "대전시 서구",
+      "sancStatCd": "C",
+      "etc": "이쁘게 짤라 주세요",
+      "filPath": "../../../../assets/img/dog3.jpg"
+    }
 
-]
+  ]
+}
