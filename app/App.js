@@ -6,6 +6,7 @@ var {Router, Route, Schema, Animations, TabBar} = require('react-native-router-f
 var Actions = require('react-native-router-flux').Actions;
 var Main = require('./components/main/Main');
 var SampleImage = require('./components/SampleImage');
+var BeautyRequests = require('./components/main/beauty/BeautyRequests');
 
 class TabIcon extends React.Component {
     render(){
@@ -26,6 +27,7 @@ export default class App extends React.Component {
 
                 <Route name="main" component={Main} wrapRouter={true} title="Main" hideNavBar={true} initial={true}/>
                 <Route name="sampleImage" component={SampleImage} title="SampleImage"/>
+                <Route name="beautyRequests" component={BeautyRequests} title="BeautyRequests"/>
             </Router>
         );
     }

@@ -2,7 +2,8 @@
 
 var React = require('react-native');
 var Beauties = require('./beauty.json');
-var {StyleSheet, ScrollView, View, Text, ListView, Image} = React;
+var {StyleSheet, ScrollView, View, Text, ListView, Image, TouchableNativeFeedback} = React;
+var Actions = require('react-native-router-flux').Actions;
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'beauty.json';
@@ -71,26 +72,29 @@ class Beauty extends React.Component {
     renderBeauty(beauty) {
 
         return (
-            <View style={styles.container}>
-                <View style={styles.topContainer}>
-                    <Image
-                    source={require('../../../../assets/img/dog1.jpg')}
-                    style={styles.thumbnail}
-                    />
-                    <Image
-                    source={require('../../../../assets/img/dog2.jpg')}
-                    style={styles.thumbnail}
-                    />
-                    <Image
-                    source={require('../../../../assets/img/dog3.jpg')}
-                    style={styles.thumbnail}
-                    />
+            <TouchableNativeFeedback onPress={Actions.beautyRequests}>
+                <View style={styles.container} >
+                    <View style={styles.imgContainer}>
+                        <Image
+                        source={require('../../../../assets/img/dog1.jpg')}
+                        style={styles.thumbnail}
+                        />
+                        <Image
+                        source={require('../../../../assets/img/dog2.jpg')}
+                        style={styles.thumbnail}
+                        />
+                        <Image
+                        source={require('../../../../assets/img/dog3.jpg')}
+                        style={styles.thumbnail}
+                        />
+                    </View>
+                    <View style={styles.contContainer}>
+                        <Text style={styles.title}>{beauty.type == 'D' ? '개' : '고양이'} ({beauty.weight})</Text>
+                        <Text style={styles.etc}>{beauty.etc}</Text>
+                        <Text style={styles.regDtm}>{beauty.regDtm}</Text>
+                    </View>
                 </View>
-                <View style={styles.rightContainer}>
-                    <Text style={styles.title}>{beauty.type == 'D' ? '개' : '고양이'} ({beauty.weight})</Text>
-                    <Text style={styles.year}>{beauty.etc}</Text>
-                </View>
-            </View>
+            </TouchableNativeFeedback>
         );
     };
 }
@@ -98,36 +102,42 @@ class Beauty extends React.Component {
 var styles = StyleSheet.create({
 
     container: {
-        flex: 1,
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 10,
-        borderColor: '#707070',
+        borderColor: '#D0D0D0',
         borderWidth: 1,
-        padding: 10
+        marginTop: 5
     },
 
-    topContainer: {
+    imgContainer: {
         flexDirection: 'row'
     },
 
-    rightContainer: {
-        flex: 1,
+    contContainer: {
+        flexDirection: 'column'
     },
 
     title: {
-        fontSize: 20,
-        marginBottom: 8,
-        textAlign: 'center',
+        fontSize: 10,
+        color: '330033',
+        left: 10
     },
 
-    year: {
-       textAlign: 'center',
+    etc: {
+        fontSize: 10,
+        color: '#101010',
+        left: 10
+    },
+
+    regDtm: {
+        fontSize: 10,
+        color: '#787878',
+        left: 10
     },
 
     thumbnail: {
-        flex: 1
+        flex: 1,
+        width: 120,
+        height:120
     },
 
     listView: {
