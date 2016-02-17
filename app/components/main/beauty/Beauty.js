@@ -4,6 +4,8 @@ var React = require('react-native');
 var Beauties = require('./beauty.json');
 var {StyleSheet, ScrollView, View, Text, ListView, Image, TouchableNativeFeedback} = React;
 var Actions = require('react-native-router-flux').Actions;
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'beauty.json';
@@ -51,11 +53,19 @@ class Beauty extends React.Component {
         }
 
         return (
-            <ListView
-                dataSource={this.state.dataSource}
-                renderRow={this.renderBeauty}
-                style={styles.listView}
-            />
+            <View style={{flex:1, backgroundColor: '#f3f3f3'}}>
+                <ListView
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderBeauty}
+                    style={styles.listView}
+                />
+                <ActionButton
+                  buttonColor="rgba(231,76,60,1)">
+                    <ActionButton.Item buttonColor='#9b59b6' title="미용 요청" onPress={Actions.beautyRequests}>
+                        <Icon name="android-create" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                </ActionButton>
+            </View>
         );
     };
 
@@ -142,6 +152,12 @@ var styles = StyleSheet.create({
 
     listView: {
 
+    },
+
+    actionButtonIcon: {
+        fontSize: 20,
+        height: 22,
+        color: 'white',
     },
 })
 
