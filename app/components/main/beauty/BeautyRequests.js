@@ -11,10 +11,10 @@ class BeautyRequests extends React.Component {
                 <View style={styles.headerContainer}>
                     <Text style={styles.back} onPress={Actions.pop}>뒤로</Text>
                     <Text style={styles.title}>미용 요청서</Text>
+                     <Text style={styles.back}></Text>
                 </View>
-                <Text onPress={Actions.pop}>
-
-                </Text>
+                <View style={styles.image}>
+                </View>
             </View>
         )
     }
@@ -24,11 +24,13 @@ var styles = StyleSheet.create({
     headerContainer: {
         flexDirection: 'row'
         ,backgroundColor: '#383838'
+        ,height : 45
+        ,alignItems: 'center'
     }
 
     ,back: {
         width: 30
-        ,height : 45
+        ,color:'#fff'
     }
 
     ,title: {
@@ -36,6 +38,10 @@ var styles = StyleSheet.create({
         ,color:'#fff'
         ,textAlign:'center'
         ,fontWeight:'bold'
+    }
+
+    ,image: {
+
     }
 })
 
