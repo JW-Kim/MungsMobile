@@ -22,7 +22,7 @@ class Hospital extends React.Component {
     };
 
     componentDidMount() {
-        this.fetchData();
+        //this.fetchData();
     };
 
     fetchData() {

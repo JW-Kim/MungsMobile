@@ -44,15 +44,17 @@ class BeautyRequests extends React.Component {
                 <View style={styles.image}>
                 </View>
                 <View style={styles.content}>
-                    <View>
+                    <Text style={styles.textType}>종 류  {this.state.canada}</Text>
+                    <View style={styles.type}>
                         <Select
                             width={250}
+                            height={40}
                             ref="SELECT1"
                             optionListRef={this._getOptionList.bind(this)}
                             defaultValue="원하는 동물을 선택하세요 ..."
                             onSelect={this._canada.bind(this)}>
                             <Option>개</Option>
-                            <Option>British Columbia</Option>
+                            <Option>고양이</Option>
                             <Option>Manitoba</Option>
                             <Option>New Brunswick</Option>
                             <Option>Newfoundland and Labrador</Option>
@@ -66,9 +68,10 @@ class BeautyRequests extends React.Component {
                             <Option>Yukon</Option>
                         </Select>
 
-                        <Text>종 류 : {this.state.canada}</Text>
-
                         <OptionList ref="OPTIONLIST"/>
+                    </View>
+                    <View>
+                        <Text>종: </Text>
                     </View>
                 </View>
             </View>
@@ -104,6 +107,15 @@ var styles = StyleSheet.create({
 
     ,content:{
         flexDirection: 'column'
+    }
+
+    ,textType: {
+        left: 20
+        ,height: 20
+    }
+
+    ,type: {
+        alignItems: 'center'
     }
 })
 
