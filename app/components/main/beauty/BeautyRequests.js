@@ -5,18 +5,39 @@ var Actions = require('react-native-router-flux').Actions;
 var {View, Text, StyleSheet, TouchableHighlight} = React;
 var Modal   = require('react-native-modalbox');
 
+var AppStore = require('../../../stores/AppStore');
+var AppActions = require('../../../actions/AppActions');
+
+function _getType() {
+    return {
+        typeCd: AppStore.getTypeCd()
+    };
+}
+
 class BeautyRequests extends React.Component {
 
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.state = _getType();
 
-        };
+        this._onTypeChange = this._onTypeChange.bind(this);
+    }
+
+    componentDidMount(){
+        AppStore.addChangeListener(this._onTypeChange);
     }
 
     openTypeModal() {
         this.refs.typeModal.open();
+    }
+
+    chgTypeModal(typeCd){
+        AppActions.setTypeCd('2');
+    }
+
+    _onTypeChange(){
+         this.setState(_getType());
     }
 
     render(){
@@ -45,7 +66,7 @@ class BeautyRequests extends React.Component {
                         <View style={styles.type}>
                             <View style={{flex:6}}>
                                 <Text style={{marginLeft:10, marginTop:12}}>
-                                    품종을 선택하세요.
+                                    품종을 선택하세요. {this.state.typeCd}
                                 </Text>
                             </View>
                             <View style={{flex:1, borderLeftWidth :1 ,borderLeftColor:'#a9a9a9'}}>
@@ -55,7 +76,9 @@ class BeautyRequests extends React.Component {
                 </View>
 
                 <Modal style={[styles.modal, styles.typeModal]} position={"center"} ref={"typeModal"} >
-                    <Text>Modal centered</Text>
+                    <TouchableHighlight onPress={this.chgTypeModal.bind('2')}>
+                        <Text>Modal centered</Text>
+                    </TouchableHighlight>
                 </Modal>
 
             </View>

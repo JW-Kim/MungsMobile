@@ -4,10 +4,8 @@
 
 import keyMirror from 'keymirror';
 
-let AppConstants = keyMirror({
-	GET_MESSAGE: null,
-	SET_MESSAGE: null,
-	SET_MENU: null,
+var AppConstants = keyMirror({
+	SET_TYPE_CD : null
 });
 
-export default AppConstants;
+module.exports = AppConstants;

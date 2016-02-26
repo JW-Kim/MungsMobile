@@ -82,7 +82,7 @@ class Beauty extends React.Component {
     renderBeauty(beauty) {
 
         return (
-            <TouchableNativeFeedback onPress={Actions.beautyRequests}>
+
                 <View style={styles.container} >
                     <View style={styles.imgContainer}>
                         <Image
@@ -104,7 +104,7 @@ class Beauty extends React.Component {
                         <Text style={styles.regDtm}>{beauty.regDtm}</Text>
                     </View>
                 </View>
-            </TouchableNativeFeedback>
+
         );
     };
 }

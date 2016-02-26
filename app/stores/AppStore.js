@@ -1,16 +1,33 @@
 'use strict';
 
-import AppDispatcher from '../dispatcher/AppDispatcher';
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 import { EventEmitter }  from 'events';
-import AppConstants  from '../constants/AppConstants';
+var AppConstants = require('../constants/AppConstants');
+var assign = require('object-assign');
 
-let _state = {
-  menu: 'false'
-};
+var CHANGE_EVENT = 'change';
 
-let AppStore = _.assign({}, EventEmitter.prototype, {
+var AppStore = assign({}, EventEmitter.prototype, {
+  typeCd: '1',
+
+  getTypeCd: function(){
+    return this.typeCd;
+  },
+
   emitChange: function() {
     this.emit(CHANGE_EVENT);
+  },
+
+  addChangeListener: function(callback) {
+    this.on(CHANGE_EVENT, callback);
+  },
+
+  removeChangeListener: function(callback) {
+    this.removeListener(CHANGE_EVENT, callback);
+  },
+
+  setTypeCd: function(typeCd){
+    this.typeCd = typeCd;
   }
 });
 
@@ -18,9 +35,10 @@ AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
 
-    case AppConstants.SET_MENU:
-      _setStateMenu(action.menu);
+    case 'SET_TYPE_CD':
+      AppStore.setTypeCd(action.typeCd);
       AppStore.emitChange();
+
     break;
 
     default:
@@ -29,8 +47,4 @@ AppDispatcher.register(function(action) {
 
 });
 
-let _setStateMenu = (menu) => {
-  _state.menu = menu;
-};
-
-export default AppStore;
+module.exports = AppStore;
