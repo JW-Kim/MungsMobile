@@ -50,7 +50,7 @@ class Main extends React.Component {
           drawerPosition={DrawerLayoutAndroid.positions.Left}
           renderNavigationView={() => renderNavigationView}>
             <Header openDrawer={()=>this.refs['DRAWER'].openDrawer()}/>
-            <ScrollableTabView>
+            <ScrollableTabView tabBarUnderlineColor='#616161' tabBarActiveTextColor='#212121' tabBarInactiveTextColor='#616161'>
                 <Beauty tabLabel="미용" />
                 <Hotel tabLabel="호텔" />
                 <Hospital tabLabel="병원" />

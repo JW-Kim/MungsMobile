@@ -2,7 +2,7 @@
 
 var React = require('react-native');
 var Beauties = require('./beauty.json');
-var {StyleSheet, ScrollView, View, Text, ListView, Image, TouchableNativeFeedback} = React;
+var {StyleSheet, ScrollView, View, Text, ListView, Image, TouchableWithoutFeedback} = React;
 var Actions = require('react-native-router-flux').Actions;
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -48,6 +48,12 @@ class Beauty extends React.Component {
     };
 
     render(){
+
+        var req = {
+            id: '',
+            userType : 'P'
+        }
+
         if (!this.state.loaded) {
             return this.renderLoadingView();
         }
@@ -61,8 +67,11 @@ class Beauty extends React.Component {
                 />
                 <ActionButton
                   buttonColor="rgba(231,76,60,1)">
-                    <ActionButton.Item buttonColor='#9b59b6' title="미용 요청" onPress={Actions.beautyRequests}>
-                        <Icon name="android-create" style={styles.actionButtonIcon} />
+                    <ActionButton.Item buttonColor='#9b59b6' title="미용 요청" onPress={()=>Actions.beautyRequests({req: req})}>
+                        <Image
+                            source={require('../../../../assets/img/ic_description.jpg')}
+                            style={{width: 20, height:20}}
+                        />
                     </ActionButton.Item>
                 </ActionButton>
             </View>
@@ -81,30 +90,36 @@ class Beauty extends React.Component {
 
     renderBeauty(beauty) {
 
-        return (
+        var req = {
+            id : beauty.id,
+            regUserId : beauty.regUserId,
+            userType : 'P'
+        }
 
+        return (
+            <TouchableWithoutFeedback onPress={()=>Actions.beautyRequests({req: req})}>
                 <View style={styles.container} >
-                    <View style={styles.imgContainer}>
+                    <View style={{flexDirection: 'row', height:100}}>
                         <Image
-                        source={require('../../../../assets/img/dog1.jpg')}
-                        style={styles.thumbnail}
+                            source={require('../../../../assets/img/dog1.jpg')}
+                            style={{width: 100, height:100}}
                         />
-                        <Image
-                        source={require('../../../../assets/img/dog2.jpg')}
-                        style={styles.thumbnail}
-                        />
-                        <Image
-                        source={require('../../../../assets/img/dog3.jpg')}
-                        style={styles.thumbnail}
-                        />
-                    </View>
-                    <View style={styles.contContainer}>
-                        <Text style={styles.title}>{beauty.type == 'D' ? '개' : '고양이'} ({beauty.weight})</Text>
-                        <Text style={styles.etc}>{beauty.etc}</Text>
-                        <Text style={styles.regDtm}>{beauty.regDtm}</Text>
+                        <View style={{flex:1, flexDirection: 'column'}}>
+                            <View style={{paddingTop:7, paddingRight:10}}>
+                                <Text style={{fontSize: 12, textAlign:'right', color: beauty.sancStatCd == 'C' ? '#FBC02D' : '#388E3C'}}>
+                                    {beauty.sancStatCd == 'C' ? '진행중' : '진행완료'}
+                                </Text>
+                            </View>
+                            <View style={{marginTop:10, marginBottom:2}}>
+                                <Text style={{fontSize: 16, color: '#101010', left: 10, fontWeight:'400'}}>{beauty.etc}</Text>
+                            </View>
+                            <Text style={{fontSize: 12, color: '#101010', left: 10}}>{beauty.breed} ({beauty.weight} Kg)</Text>
+                            <Text style={styles.regDtm}>{beauty.regDtm}</Text>
+                        </View>
+
                     </View>
                 </View>
-
+            </TouchableWithoutFeedback>
         );
     };
 }
@@ -118,20 +133,6 @@ var styles = StyleSheet.create({
         marginTop: 5
     },
 
-    imgContainer: {
-        flexDirection: 'row'
-    },
-
-    contContainer: {
-        flexDirection: 'column'
-    },
-
-    title: {
-        fontSize: 10,
-        color: '330033',
-        left: 10
-    },
-
     etc: {
         fontSize: 10,
         color: '#101010',
@@ -139,19 +140,9 @@ var styles = StyleSheet.create({
     },
 
     regDtm: {
-        fontSize: 10,
+        fontSize: 12,
         color: '#787878',
         left: 10
-    },
-
-    thumbnail: {
-        flex: 1,
-        width: 120,
-        height:120
-    },
-
-    listView: {
-
     },
 
     actionButtonIcon: {
