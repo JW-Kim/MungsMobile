@@ -18,6 +18,5 @@ class AnimalType extends React.Component {
         )
     }
 }    
-
     
 module.exports = AnimalType;    
