@@ -10,6 +10,7 @@ var AppStore = require('../../../stores/AppStore');
 var AppActions = require('../../../actions/AppActions');
 
 var CompanyList = require('./CompanyList');
+var AnimalType = require('./AnimalType');
 
 function _getType() {
     return {
@@ -170,7 +171,7 @@ class BeautyRequests extends React.Component {
 
                 <Modal style={[styles.modal, styles.typeModal]} position={"center"} ref={"typeModal"} >
                     <TouchableHighlight onPress={this.chgTypeModal.bind(this, '2')}>
-                        <Text>Modal centered</Text>
+                        <AnimalType/>
                     </TouchableHighlight>
                 </Modal>
             </View>
