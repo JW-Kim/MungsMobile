@@ -37,6 +37,10 @@ class BeautyRequests extends React.Component {
         this.refs.typeModal.open();
     }
 
+    openAnimalTypeModal(){
+        this.refs.animalTypeModal.open();
+    }
+
     chgTypeModal(typeCd){
         console.log('typeCd', typeCd)
         AppActions.setTypeCd(typeCd);
@@ -75,7 +79,7 @@ class BeautyRequests extends React.Component {
                         <View style={{flexDirection: 'row',height:20}}>
                             <Text style={{marginLeft: 15, fontWeight:'bold'}}>동물 종류 </Text><Text style={{color:'#B71C1C'}}>*</Text>
                         </View>
-                        <TouchableHighlight onPress={this.openTypeModal.bind(this)} underlayColor='#c0c0c0'>
+                        <TouchableHighlight onPress={this.openAnimalTypeModal.bind(this)} underlayColor='#c0c0c0'>
                             <View style={styles.type}>
                                 <View style={{flex:6}}>
                                     <Text style={{marginLeft:10, marginTop:12}}>
@@ -169,9 +173,13 @@ class BeautyRequests extends React.Component {
 
                 <CompanyList req={this.props.req}/>
 
+                <Modal style={[styles.modal], {height: 300}} position={"center"} ref={"animalTypeModal"} >
+                    <AnimalType/>
+                </Modal>
+
                 <Modal style={[styles.modal, styles.typeModal]} position={"center"} ref={"typeModal"} >
                     <TouchableHighlight onPress={this.chgTypeModal.bind(this, '2')}>
-                        <AnimalType/>
+                        <Text>ㅎㅎ</Text>
                     </TouchableHighlight>
                 </Modal>
             </View>
@@ -223,7 +231,7 @@ var styles = StyleSheet.create({
     }
 
     ,typeModal: {
-        height: 100
+        height: 200
         ,backgroundColor: "#3B5998"
     }
 })
