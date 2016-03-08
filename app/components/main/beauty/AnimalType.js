@@ -4,6 +4,8 @@ var React = require('react-native');
 var {View, Text, ListView, TouchableWithoutFeedback} = React;
 var Animals = require('./animal.json');
 
+var CircleCheckBox = require('react-native-circle-checkbox');
+
 class AnimalType extends React.Component {
     
     constructor(props) {
@@ -29,7 +31,7 @@ class AnimalType extends React.Component {
                 <View style={{height:45, backgroundColor: '#383838', flexDirection:'row', alignItems: 'center'}}>
                     <Text style={{flex: 1, color:'#fff', textAlign:'center', fontWeight:'bold'}}>동물 종류</Text>
                 </View>
-                <View style={{flex:1, backgroundColor: 'blue'}}>
+                <View style={{height: 155}}>
                     <ListView
                         dataSource={this.state.dataSource}
                         renderRow={this.renderAnimalType}
@@ -42,8 +44,13 @@ class AnimalType extends React.Component {
     renderAnimalType(animal){
         return(
             <TouchableWithoutFeedback>
-                <View style={{flexDirection:'row', height: 50}}>
-                    <Text>{animal.coNm}</Text>
+                <View style={{flexDirection:'row', height: 50, alignItems: 'center', paddingLeft:10}}>
+                    <CircleCheckBox
+                        checked={true}
+                        outerSize = {16}
+                        innerSize = {10}
+                    />
+                    <Text style={{marginLeft:10 }}>{animal.coNm}</Text>
                 </View>
             </TouchableWithoutFeedback>
         )
