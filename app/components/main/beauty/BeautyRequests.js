@@ -173,7 +173,7 @@ class BeautyRequests extends React.Component {
 
                 <CompanyList req={this.props.req}/>
 
-                <Modal style={[styles.modal], {height: 300}} position={"center"} ref={"animalTypeModal"} >
+                <Modal style={[styles.modal], {height: 200}} position={"center"} ref={"animalTypeModal"} >
                     <AnimalType/>
                 </Modal>
 
