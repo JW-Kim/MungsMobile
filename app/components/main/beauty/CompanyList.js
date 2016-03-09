@@ -3,6 +3,7 @@
 var React = require('react-native');
 var {View, Text, StyleSheet, Image, ListView, TouchableWithoutFeedback} = React;
 var Companies = require('./company.json');
+var Button = require('react-native-button');
 
 class CompanyList extends React.Component {
     constructor(props) {
@@ -58,8 +59,13 @@ class CompanyList extends React.Component {
     renderCompany(company){
         return(
             <TouchableWithoutFeedback>
-                <View style={{flexDirection:'row'}}>
-                    <Text>{company.companyNm}</Text>
+                <View style={{flexDirection:'row', marginTop:3}}>
+                    <Text style={{flex:1,fontSize: 15, marginLeft:5,  color: '#101010'}}>{company.companyNm}</Text>
+                    <Text style={{flex:1, fontSize: 15,  color: '#101010'}}>{company.price}원</Text>
+                    <Button containerStyle={{flex:0.5, height: 25, borderRadius:4, backgroundColor: '#616161', marginRight: 5}}
+                            style={{fontSize: 15, color: 'white', height:25}}>
+                        상세보기
+                    </Button>
                 </View>
             </TouchableWithoutFeedback>
         )
