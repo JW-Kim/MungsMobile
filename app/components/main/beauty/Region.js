@@ -6,6 +6,7 @@ var Regions = require('./regionType.json');
 
 var CircleCheckBox = require('react-native-circle-checkbox');
 var Accordion = require('react-native-collapsible/Accordion');
+var GridView = require('react-native-grid-view');
 
 class Region extends React.Component {
 
@@ -30,7 +31,6 @@ class Region extends React.Component {
                         renderHeader={this.renderHeader}
                         renderContent={this.renderContent}
                         renderRegionList={this.renderRegionList}
-                        easing="easeOutCubic"
                     />
                 </ScrollView>
             </View>
@@ -49,18 +49,17 @@ class Region extends React.Component {
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
         return(
-            <View>
-                <ListView
-                    dataSource={ds.cloneWithRows(section.detail)}
-                    renderRow={this.renderRegionList}
-                />
-            </View>
+            <GridView
+                items={section.detail}
+                itemsPerRow={4}
+                renderItem={this.renderRegionList}
+            />
         )
     }
 
     renderRegionList(region){
         return(
-            <View>
+            <View style={{flex:1, flexDirection:'row', height: 30, alignItems: 'center', backgroundColor:'#F5F5F5'}}>
                 <Text>{region.coNm}</Text>
             </View>
         )
