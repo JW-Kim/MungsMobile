@@ -11,6 +11,8 @@ var AppActions = require('../../../actions/AppActions');
 
 var CompanyList = require('./CompanyList');
 var AnimalType = require('./AnimalType');
+var Breed = require('./Breed');
+var Region = require('./Region');
 
 function _getType() {
     return {
@@ -39,6 +41,14 @@ class BeautyRequests extends React.Component {
 
     openAnimalTypeModal(){
         this.refs.animalTypeModal.open();
+    }
+
+    openBreedModal(){
+        this.refs.breedModal.open();
+    }
+
+    openRegionModal(){
+        this.refs.regionModal.open();
     }
 
     chgTypeModal(typeCd){
@@ -98,7 +108,7 @@ class BeautyRequests extends React.Component {
                         <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
                             <Text style={{marginLeft: 15, fontWeight:'bold'}}>품 종 </Text><Text style={{color:'#B71C1C'}}>*</Text>
                         </View>
-                        <TouchableHighlight onPress={this.openTypeModal.bind(this)} underlayColor='#c0c0c0'>
+                        <TouchableHighlight onPress={this.openBreedModal.bind(this)} underlayColor='#c0c0c0'>
                             <View style={styles.type}>
                                 <View style={{flex:6}}>
                                     <Text style={{marginLeft:10, marginTop:12}}>
@@ -130,7 +140,7 @@ class BeautyRequests extends React.Component {
                         <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
                              <Text style={{marginLeft: 15, fontWeight:'bold'}}>지역 선택 </Text><Text style={{color:'#B71C1C'}}>*</Text>
                         </View>
-                        <TouchableHighlight onPress={this.openTypeModal.bind(this)} underlayColor='#c0c0c0'>
+                        <TouchableHighlight onPress={this.openRegionModal.bind(this)} underlayColor='#c0c0c0'>
                             <View style={styles.type}>
                                 <View style={{flex:6}}>
                                     <Text style={{marginLeft:10, marginTop:12}}>
@@ -175,6 +185,14 @@ class BeautyRequests extends React.Component {
 
                 <Modal style={[styles.modal], {height: 200}} position={"center"} ref={"animalTypeModal"} >
                     <AnimalType/>
+                </Modal>
+
+                <Modal style={[styles.modal], {height: 200}} position={"center"} ref={"breedModal"} >
+                    <Breed/>
+                </Modal>
+
+                <Modal style={[styles.modal], {height: 400}} position={"center"} ref={"regionModal"} >
+                    <Region/>
                 </Modal>
 
                 <Modal style={[styles.modal, styles.typeModal]} position={"center"} ref={"typeModal"} >
