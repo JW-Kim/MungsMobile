@@ -49,6 +49,7 @@ class Breed extends React.Component {
                         checked={true}
                         outerSize = {16}
                         innerSize = {10}
+                        onToggle={(checked) => console.log('My state is: ', checked)}
                     />
                     <Text style={{marginLeft:10 }}>{breed.coNm}</Text>
                 </View>
