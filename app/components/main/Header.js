@@ -20,7 +20,15 @@ class Header extends React.Component {
                            source={require('../../../assets/img/menu.jpg')}
                         />
                     </TouchableHighlight>
-                    <Text style={styles.title}>블루 멍스</Text>
+                    <View style={{flex:1, alignItems: 'center'}}>
+                        <View style={{flexDirection:'row'}}>
+                        <Image
+                            source={require('../../../assets/img/logo.png')}
+                            style={{width: 18, height:18}}
+                        />
+                        <Text style={{color: '#2979FF', fontSize: 18, marginLeft: 3}}>BLUE MONGS</Text>
+                        </View>
+                    </View>
                     <Image
                        style={styles.menuImg}
                        source={require('../../../assets/img/setting.jpg')}

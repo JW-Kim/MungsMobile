@@ -2,9 +2,19 @@
   "total": "10",
   "companyList": [
     {
-      "companyNm": "멍스펫",
+      "companyNm": "블루멍스",
       "companyAddr": "서울시 강동구 둔촌동",
       "price": "10000"
+    },
+    {
+      "companyNm": "멍스펫",
+      "companyAddr": "서울시 강동구 둔촌동",
+      "price": "20000"
+    },
+    {
+      "companyNm": "도그몬",
+      "companyAddr": "서울시 강동구 둔촌동",
+      "price": "30000"
     },
     {
       "companyNm": "멍스펫",
@@ -32,24 +42,14 @@
       "price": "10000"
     },
     {
-      "companyNm": "멍스펫",
+      "companyNm": "펫스몰",
       "companyAddr": "서울시 강동구 둔촌동",
-      "price": "10000"
+      "price": "20000"
     },
     {
-      "companyNm": "멍스펫",
+      "companyNm": "블루멍스",
       "companyAddr": "서울시 강동구 둔촌동",
-      "price": "10000"
-    },
-    {
-      "companyNm": "멍스펫",
-      "companyAddr": "서울시 강동구 둔촌동",
-      "price": "10000"
-    },
-    {
-      "companyNm": "멍스펫",
-      "companyAddr": "서울시 강동구 둔촌동",
-      "price": "10000"
+      "price": "30000"
     },
     {
       "companyNm": "멍스펫",
