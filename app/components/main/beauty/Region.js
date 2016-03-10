@@ -21,11 +21,13 @@ class Region extends React.Component {
 
     render(){
         return(
-            <View style={{flexDirection:'column'}}>
+            <View style={{flex:1, flexDirection:'column'}}>
                 <View style={{height:45, backgroundColor: '#383838', flexDirection:'row', alignItems: 'center'}}>
+                    <View style={{width:50}}></View>
                     <Text style={{flex: 1, color:'#fff', textAlign:'center', fontWeight:'bold'}}>지역 선택</Text>
+                    <Text style={{width:50, color:'#fff'}} onPress={this.props.closeRegionModal}>닫기</Text>
                 </View>
-                <ScrollView style={{height: 355}}>
+                <ScrollView style={{flex: 1}}>
                     <Accordion
                         sections={Regions.regionList}
                         renderHeader={this.renderHeader}
@@ -39,19 +41,17 @@ class Region extends React.Component {
 
     renderHeader(section, i, isActive){
         return(
-            <View style={{flexDirection:'row', height: 50, alignItems: 'center', paddingLeft:10}}>
+            <View style={{flexDirection:'row', height: 50, alignItems: 'center', paddingLeft:10, borderWidth:0.2, borderColor:'#a9a9a9'}}>
                 <Text style={{marginLeft:10 }}>{section.coNm}</Text>
             </View>
         )
     }
 
     renderContent(section, i, isActive){
-        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-
         return(
             <GridView
                 items={section.detail}
-                itemsPerRow={4}
+                itemsPerRow={3}
                 renderItem={this.renderRegionList}
             />
         )
@@ -59,11 +59,13 @@ class Region extends React.Component {
 
     renderRegionList(region){
         return(
-            <View style={{flex:1, flexDirection:'row', height: 30, alignItems: 'center', backgroundColor:'#F5F5F5'}}>
-                <Text>{region.coNm}</Text>
+            <View style={{  flex:1, flexDirection:'row', height: 30, alignItems: 'center', justifyContent: 'center', backgroundColor:'#F5F5F5',
+                            borderWidth:0.2, borderColor:'#a9a9a9'}}>
+                <Text style={{}}>{region.coNm}</Text>
             </View>
         )
     }
+
 }
 
 module.exports = Region;
