@@ -191,8 +191,8 @@ class BeautyRequests extends React.Component {
                     <Breed/>
                 </Modal>
 
-                <Modal style={[styles.modal], {height: 400}} position={"center"} ref={"regionModal"} >
-                    <Region/>
+                <Modal style={[styles.modal], {flex:1}} position={"center"} ref={"regionModal"} swipeToClose={false}>
+                    <Region closeRegionModal={this._closeRegionModal.bind(this)}/>
                 </Modal>
 
                 <Modal style={[styles.modal, styles.typeModal]} position={"center"} ref={"typeModal"} >
@@ -202,6 +202,10 @@ class BeautyRequests extends React.Component {
                 </Modal>
             </View>
         )
+    }
+
+    _closeRegionModal(){
+        this.refs.regionModal.close();
     }
 }
 
