@@ -26,7 +26,7 @@ class Header extends React.Component {
                             source={require('../../../assets/img/logo.png')}
                             style={{width: 18, height:18}}
                         />
-                        <Text style={{color: '#2979FF', fontSize: 18, marginLeft: 3}}>BLUE MONGS</Text>
+                        <Text style={{color: '#2979FF', fontSize: 18, marginLeft: 3}}>블루 멍스</Text>
                         </View>
                     </View>
                     <Image
