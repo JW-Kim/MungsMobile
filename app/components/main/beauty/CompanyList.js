@@ -48,7 +48,7 @@ class CompanyList extends React.Component {
                                 ,backgroundColor:'#E0E0E0'}}>
                     <ListView
                         dataSource={this.state.dataSource}
-                        renderRow={this.renderCompany}
+                        renderRow={this.renderCompany.bind(this)}
                     />
                 </View>
 
@@ -63,7 +63,8 @@ class CompanyList extends React.Component {
                     <Text style={{flex:1,fontSize: 15, marginLeft:5,  color: '#101010'}}>{company.companyNm}</Text>
                     <Text style={{flex:1, fontSize: 15,  color: '#101010'}}>{company.price}원</Text>
                     <Button containerStyle={{flex:0.5, height: 25, borderRadius:4, backgroundColor: '#616161', marginRight: 5}}
-                            style={{fontSize: 15, color: 'white', height:25}}>
+                            style={{fontSize: 15, color: 'white', height:25}}
+                            onPress={this.props.openCompanyDetailModal}>
                         상세보기
                     </Button>
                 </View>
