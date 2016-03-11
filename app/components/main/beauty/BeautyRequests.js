@@ -13,6 +13,7 @@ var CompanyList = require('./CompanyList');
 var AnimalType = require('./AnimalType');
 var Breed = require('./Breed');
 var Region = require('./Region');
+var CompanyDetail = require('../com/CompanyDetail');
 
 function _getType() {
     return {
@@ -33,22 +34,6 @@ class BeautyRequests extends React.Component {
     componentDidMount(){
         console.log('req1', this.props.req);
         AppStore.addChangeListener(this._onTypeChange);
-    }
-
-    openTypeModal() {
-        this.refs.typeModal.open();
-    }
-
-    openAnimalTypeModal(){
-        this.refs.animalTypeModal.open();
-    }
-
-    openBreedModal(){
-        this.refs.breedModal.open();
-    }
-
-    openRegionModal(){
-        this.refs.regionModal.open();
     }
 
     chgTypeModal(typeCd){
@@ -89,7 +74,7 @@ class BeautyRequests extends React.Component {
                         <View style={{flexDirection: 'row',height:20}}>
                             <Text style={{marginLeft: 15, fontWeight:'bold'}}>동물 종류 </Text><Text style={{color:'#B71C1C'}}>*</Text>
                         </View>
-                        <TouchableHighlight onPress={this.openAnimalTypeModal.bind(this)} underlayColor='#c0c0c0'>
+                        <TouchableHighlight onPress={this._openAnimalTypeModal.bind(this)} underlayColor='#c0c0c0'>
                             <View style={styles.type}>
                                 <View style={{flex:6}}>
                                     <Text style={{marginLeft:10, marginTop:12}}>
@@ -108,7 +93,7 @@ class BeautyRequests extends React.Component {
                         <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
                             <Text style={{marginLeft: 15, fontWeight:'bold'}}>품 종 </Text><Text style={{color:'#B71C1C'}}>*</Text>
                         </View>
-                        <TouchableHighlight onPress={this.openBreedModal.bind(this)} underlayColor='#c0c0c0'>
+                        <TouchableHighlight onPress={this._openBreedModal.bind(this)} underlayColor='#c0c0c0'>
                             <View style={styles.type}>
                                 <View style={{flex:6}}>
                                     <Text style={{marginLeft:10, marginTop:12}}>
@@ -140,7 +125,7 @@ class BeautyRequests extends React.Component {
                         <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
                              <Text style={{marginLeft: 15, fontWeight:'bold'}}>지역 선택 </Text><Text style={{color:'#B71C1C'}}>*</Text>
                         </View>
-                        <TouchableHighlight onPress={this.openRegionModal.bind(this)} underlayColor='#c0c0c0'>
+                        <TouchableHighlight onPress={this._openRegionModal.bind(this)} underlayColor='#c0c0c0'>
                             <View style={styles.type}>
                                 <View style={{flex:6}}>
                                     <Text style={{marginLeft:10, marginTop:12}}>
@@ -181,7 +166,7 @@ class BeautyRequests extends React.Component {
 
                 </ScrollView>
 
-                <CompanyList req={this.props.req}/>
+                <CompanyList req={this.props.req} openCompanyDetailModal={this._openCompanyDetailModal.bind(this)}/>
 
                 <Modal style={[styles.modal], {height: 200}} position={"center"} ref={"animalTypeModal"} >
                     <AnimalType/>
@@ -195,6 +180,10 @@ class BeautyRequests extends React.Component {
                     <Region closeRegionModal={this._closeRegionModal.bind(this)}/>
                 </Modal>
 
+                <Modal style={[styles.modal], {flex:1}} position={"center"} ref={"companyDetailModal"} swipeToClose={false}>
+                    <CompanyDetail closeCompanyDetailModal={this._closeCompanyDetailModal.bind(this)}/>
+                </Modal>
+
                 <Modal style={[styles.modal, styles.typeModal]} position={"center"} ref={"typeModal"} >
                     <TouchableHighlight onPress={this.chgTypeModal.bind(this, '2')}>
                         <Text>ㅎㅎ</Text>
@@ -204,8 +193,32 @@ class BeautyRequests extends React.Component {
         )
     }
 
+    openTypeModal() {
+        this.refs.typeModal.open();
+    }
+
+    _openAnimalTypeModal(){
+        this.refs.animalTypeModal.open();
+    }
+
+    _openBreedModal(){
+        this.refs.breedModal.open();
+    }
+
+    _openRegionModal(){
+        this.refs.regionModal.open();
+    }
+
+    _openCompanyDetailModal(){
+        this.refs.companyDetailModal.open();
+    }
+
+
     _closeRegionModal(){
         this.refs.regionModal.close();
+    }
+    _closeCompanyDetailModal(){
+        this.refs.companyDetailModal.close();
     }
 }
 
