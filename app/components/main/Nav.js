@@ -13,7 +13,7 @@ class Nav extends React.Component {
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
         this.state = {
-          dataSource: ds.cloneWithRows(['미 용', '교 배', '병 원', '설 정']),
+          dataSource: ds.cloneWithRows(['미 용', '병 원', '설 정']),
         };
     };
 
