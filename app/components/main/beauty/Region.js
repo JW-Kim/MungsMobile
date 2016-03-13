@@ -41,7 +41,7 @@ class Region extends React.Component {
 
     renderHeader(section, i, isActive){
         return(
-            <View style={{flexDirection:'row', height: 50, alignItems: 'center', paddingLeft:10, borderWidth:0.2, borderColor:'#a9a9a9'}}>
+            <View style={{flexDirection:'row', height: 50, alignItems: 'center', paddingLeft:10, borderWidth:0.5, borderColor:'#a9a9a9'}}>
                 <Text style={{marginLeft:10 }}>{section.coNm}</Text>
             </View>
         )
@@ -60,7 +60,7 @@ class Region extends React.Component {
     renderRegionList(region){
         return(
             <View style={{  flex:1, flexDirection:'row', height: 30, alignItems: 'center', justifyContent: 'center', backgroundColor:'#F5F5F5',
-                            borderWidth:0.2, borderColor:'#a9a9a9'}}>
+                            borderWidth:0.5, borderColor:'#a9a9a9'}} key={region.coCd}>
                 <Text style={{}}>{region.coNm}</Text>
             </View>
         )

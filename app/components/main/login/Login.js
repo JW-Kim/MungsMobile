@@ -22,7 +22,7 @@ class Login extends React.Component {
                         source={require('../../../../assets/img/logo.png')}
                         style={{width: 20, height:20}}
                     />
-                    <Text style={{color: '#2979FF', fontSize: 20, marginLeft: 3}}>BLUE MONGS</Text>
+                    <Text style={{color: '#2979FF', fontSize: 20, marginLeft: 3}}>블루 멍스</Text>
                 </View>
 
                 <TouchableHighlight onPress={this._goToNaver}>
