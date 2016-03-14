@@ -28,7 +28,7 @@ class AnimalType extends React.Component {
     render(){
         return(
             <View style={{flexDirection:'column'}}>
-                <View style={{height:45, backgroundColor: '#383838', flexDirection:'row', alignItems: 'center'}}>
+                <View style={{height:45, backgroundColor: '#0277BD', flexDirection:'row', alignItems: 'center'}}>
                     <Text style={{flex: 1, color:'#fff', textAlign:'center', fontWeight:'bold'}}>동물 종류</Text>
                 </View>
                 <View style={{height: 155}}>

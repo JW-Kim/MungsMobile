@@ -226,7 +226,7 @@ var styles = StyleSheet.create({
 
    headerContainer: {
         flexDirection: 'row'
-        ,backgroundColor: '#383838'
+        ,backgroundColor: '#0277BD'
         ,height : 45
         ,alignItems: 'center'
     }

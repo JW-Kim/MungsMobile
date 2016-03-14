@@ -16,13 +16,12 @@ class Login extends React.Component {
 
     render(){
         return (
-            <View style={{flex: 1, flexDirection: 'column',backgroundColor: '#383838', alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{flex: 1, flexDirection: 'column',backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center'}}>
                 <View style={{flexDirection:'row', marginTop:100, marginBottom: 200}}>
                     <Image
-                        source={require('../../../../assets/img/logo.png')}
-                        style={{width: 20, height:20}}
+                        source={require('../../../../assets/img/logo.jpg')}
+                        style={{width: 150, height:80}}
                     />
-                    <Text style={{color: '#2979FF', fontSize: 20, marginLeft: 3}}>블루 멍스</Text>
                 </View>
 
                 <TouchableHighlight onPress={this._goToNaver}>

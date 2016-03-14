@@ -17,21 +17,20 @@ class Header extends React.Component {
                     <TouchableHighlight onPress={() => this.props.openDrawer()}>
                         <Image
                            style={styles.menuImg}
-                           source={require('../../../assets/img/menu.jpg')}
+                           source={require('../../../assets/img/menu1.jpg')}
                         />
                     </TouchableHighlight>
                     <View style={{flex:1, alignItems: 'center'}}>
                         <View style={{flexDirection:'row'}}>
-                        <Image
-                            source={require('../../../assets/img/logo.png')}
-                            style={{width: 18, height:18}}
-                        />
-                        <Text style={{color: '#2979FF', fontSize: 18, marginLeft: 3}}>블루 멍스</Text>
+                            <Image
+                                source={require('../../../assets/img/logo.jpg')}
+                                style={{width: 80, height:40}}
+                            />
                         </View>
                     </View>
                     <Image
                        style={styles.menuImg}
-                       source={require('../../../assets/img/setting.jpg')}
+                       source={require('../../../assets/img/setting1.jpg')}
                     />
                 </View>
             </View>
@@ -49,7 +48,7 @@ var styles = StyleSheet.create({
         flexDirection: 'row'
         ,alignItems: 'center'
         ,height : 45
-        ,backgroundColor: '#383838'
+        ,backgroundColor: '#FFFFFF'
     }
 
     ,menuImg : {

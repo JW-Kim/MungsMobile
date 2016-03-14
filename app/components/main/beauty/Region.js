@@ -22,7 +22,7 @@ class Region extends React.Component {
     render(){
         return(
             <View style={{flex:1, flexDirection:'column'}}>
-                <View style={{height:45, backgroundColor: '#383838', flexDirection:'row', alignItems: 'center'}}>
+                <View style={{height:45, backgroundColor: '#0277BD', flexDirection:'row', alignItems: 'center'}}>
                     <View style={{width:50}}></View>
                     <Text style={{flex: 1, color:'#fff', textAlign:'center', fontWeight:'bold'}}>지역 선택</Text>
                     <Text style={{width:50, color:'#fff'}} onPress={this.props.closeRegionModal}>닫기</Text>

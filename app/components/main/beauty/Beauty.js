@@ -128,7 +128,7 @@ var styles = StyleSheet.create({
 
     container: {
         flexDirection: 'column',
-        borderColor: '#D0D0D0',
+        borderColor: '#B3E5FC',
         borderWidth: 1,
         marginTop: 5
     },
