@@ -5,6 +5,7 @@ var Actions = require('react-native-router-flux').Actions;
 var {View, Text, StyleSheet, TouchableHighlight, Image, TextInput, ScrollView} = React;
 var Modal   = require('react-native-modalbox');
 var Button = require('react-native-button');
+var Accordion = require('react-native-collapsible/Accordion');
 
 var AppStore = require('../../../stores/AppStore');
 var AppActions = require('../../../actions/AppActions');
@@ -14,6 +15,8 @@ var AnimalType = require('./AnimalType');
 var Breed = require('./Breed');
 var Region = require('./Region');
 var CompanyDetail = require('../com/CompanyDetail');
+
+var _scrollToBottomY
 
 function _getType() {
     return {
@@ -54,16 +57,21 @@ class BeautyRequests extends React.Component {
             <View style={{flex: 1, flexDirection: 'column'}}>
                 <View style={styles.headerContainer}>
                     <TouchableHighlight onPress={Actions.pop} style={{width: 30}}>
-                        <Image
-                            source={require('../../../../assets/img/ic_navigate_before.png')}
-                            style={{height: 30, width: 30}}
-                        />
+                        <View style={{height: 50, width: 30, justifyContent: 'center', alignItems: 'center'}}>
+                            <Image
+                                source={require('../../../../assets/img/ic_navigate_before.png')}
+                                style={{height: 30, width: 30}}
+                            />
+                        </View>
                     </TouchableHighlight>
                     <Text style={styles.title}>미용 요청서</Text>
                     <Text style={styles.back}></Text>
                 </View>
 
-                <ScrollView>
+                <ScrollView ref='_scrollView'
+                    onContentSizeChange={(newSize)=>{
+                        _scrollToBottomY = newSize;
+                    }}>
                     <View style={{backgroundColor: '#E0E0E0',height: 150, justifyContent: 'center', alignItems: 'center'}}>
                         <Image
                             source={require('../../../../assets/img/ic_add_a_photo_white.jpg')}
@@ -158,15 +166,20 @@ class BeautyRequests extends React.Component {
 
                     <Button containerStyle={{marginTop: 15, marginBottom:5, marginLeft:5, marginRight:5,
                                             padding: this.props.req.id == '' ? 10 : 0,
-                                            height:this.props.req.id == '' ? 45 : 0, overflow:'hidden', borderRadius:4, backgroundColor: '#616161'}}
+                                            height:this.props.req.id == '' ? 45 : 0, overflow:'hidden', borderRadius:4, backgroundColor: '#03A9F4'}}
                             style={{fontSize: 15, color: 'white', height:this.props.req.id == '' ? 45 : 0}}
                             onPress={this._send}>
                         미용 요청하기
                     </Button>
 
-                </ScrollView>
+                    <Accordion
+                        sections={[{title:'입찰한 업체 리스트 (4건)'}]}
+                        renderHeader={this._renderHeader.bind(this)}
+                        renderContent={this._renderContent.bind(this)}
+                        onChange={this._chgAccordion.bind(this)}
+                    />
 
-                <CompanyList req={this.props.req} openCompanyDetailModal={this._openCompanyDetailModal.bind(this)}/>
+                </ScrollView>
 
                 <Modal style={[styles.modal], {height: 200}} position={"center"} ref={"animalTypeModal"} >
                     <AnimalType/>
@@ -191,6 +204,30 @@ class BeautyRequests extends React.Component {
                 </Modal>
             </View>
         )
+    }
+
+    _renderHeader(section, i, isActive){
+        return(
+            <View style={{flexDirection:'row', height: this.props.req.id == '' ? 0 : 50, alignItems: 'center', paddingLeft:10, borderWidth:1, borderColor:'#29B6F6', backgroundColor:'#81D4FA'}}>
+               <Image
+                    source={require('../../../../assets/img/ic_group.jpg')}
+                    style={{height:this.props.req.id == '' ? 0 : 20,width: 20, marginLeft: 15}}
+                />
+                <Text style={{marginLeft:10, height:this.props.req.id == '' ? 0 : 20 }}>{section.title}</Text>
+            </View>
+        )
+    }
+
+    _renderContent(section, i, isActive){
+        return(
+            <CompanyList req={this.props.req} openCompanyDetailModal={this._openCompanyDetailModal.bind(this)}/>
+        )
+    }
+
+    _chgAccordion(index){
+        setTimeout(() => {this.refs._scrollView.scrollTo(_scrollToBottomY);},100
+        );
+
     }
 
     openTypeModal() {
@@ -226,7 +263,7 @@ var styles = StyleSheet.create({
 
    headerContainer: {
         flexDirection: 'row'
-        ,backgroundColor: '#383838'
+        ,backgroundColor: '#0277BD'
         ,height : 45
         ,alignItems: 'center'
     }
