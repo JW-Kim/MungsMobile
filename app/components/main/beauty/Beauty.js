@@ -105,10 +105,12 @@ class Beauty extends React.Component {
                             style={{width: 100, height:100}}
                         />
                         <View style={{flex:1, flexDirection: 'column'}}>
-                            <View style={{paddingTop:7, paddingRight:10}}>
-                                <Text style={{fontSize: 12, textAlign:'right', color: beauty.sancStatCd == 'C' ? '#FBC02D' : '#388E3C'}}>
-                                    {beauty.sancStatCd == 'C' ? '진행중' : '진행완료'}
-                                </Text>
+                            <View style={{paddingTop:7, paddingRight:10, alignItems:'flex-end'}}>
+                                <View style={{width:50, backgroundColor:beauty.sancStatCd == 'C' ? '#FBC02D' : '#388E3C', alignItems:'center'}}>
+                                    <Text style={{fontSize: 12, textAlign:'right', color: '#ffffff'}}>
+                                        {beauty.sancStatCd == 'C' ? '진행중' : '진행완료'}
+                                    </Text>
+                                </View>
                             </View>
                             <View style={{marginTop:10, marginBottom:2}}>
                                 <Text style={{fontSize: 16, color: '#101010', left: 10, fontWeight:'400'}}>{beauty.etc}</Text>
@@ -128,7 +130,7 @@ var styles = StyleSheet.create({
 
     container: {
         flexDirection: 'column',
-        borderColor: '#D0D0D0',
+        borderColor: '#B3E5FC',
         borderWidth: 1,
         marginTop: 5
     },
