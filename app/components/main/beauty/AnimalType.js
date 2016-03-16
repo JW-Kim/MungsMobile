@@ -3,6 +3,7 @@
 var React = require('react-native');
 var {View, Text, ListView, TouchableWithoutFeedback} = React;
 var Animals = require('./animal.json');
+var Actions = require('react-native-router-flux').Actions;
 
 var CircleCheckBox = require('react-native-circle-checkbox');
 
