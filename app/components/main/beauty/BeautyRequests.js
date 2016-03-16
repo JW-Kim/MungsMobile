@@ -227,7 +227,6 @@ class BeautyRequests extends React.Component {
     _chgAccordion(index){
         setTimeout(() => {this.refs._scrollView.scrollTo(_scrollToBottomY);},100
         );
-
     }
 
     openTypeModal() {
