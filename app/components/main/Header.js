@@ -24,7 +24,7 @@ class Header extends React.Component {
                         <View style={{flexDirection:'row'}}>
                             <Image
                                 source={require('../../../assets/img/logo.jpg')}
-                                style={{width: 80, height:40}}
+                                style={{width: 181, height:37}}
                             />
                         </View>
                     </View>

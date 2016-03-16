@@ -20,7 +20,7 @@ class Login extends React.Component {
                 <View style={{flexDirection:'row', marginTop:100, marginBottom: 200}}>
                     <Image
                         source={require('../../../../assets/img/logo.jpg')}
-                        style={{width: 150, height:80}}
+                        style={{width: 181, height:37}}
                     />
                 </View>
 
