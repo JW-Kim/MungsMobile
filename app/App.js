@@ -1,14 +1,26 @@
 'use strict';
 
 var React = require('react-native');
-var {AppRegistry, Navigator, StyleSheet,Text,View, Image, TouchableHighlight} = React;
+var {AppRegistry, Navigator, StyleSheet,Text,View, Image, TouchableHighlight, BackAndroid} = React;
 var {Router, Route, Schema, Animations, TabBar} = require('react-native-router-flux');
 var Actions = require('react-native-router-flux').Actions;
 
 var Login = require('./components/main/login/Login');
+var CompanyRegister = require('./components/main/login/CompanyRegister');
 var Main = require('./components/main/Main');
-var SampleImage = require('./components/SampleImage');
 var BeautyRequests = require('./components/main/beauty/BeautyRequests');
+
+BackAndroid.addEventListener('hardwareBackPress', () => {
+    console.log('Actions', Actions)
+    console.log('Actions.currentRouter', Actions.currentRouter._stack)
+    if(Actions.currentRouter._stack == 'login' || Actions.currentRouter._stack == 'main'){
+        return false;
+
+    }else{
+        Actions.pop();
+        return true;
+    }
+});
 
 class TabIcon extends React.Component {
     render(){
@@ -28,9 +40,9 @@ export default class App extends React.Component {
                 <Schema name="tab" type="switch" icon={TabIcon} />
 
                 <Route name="login" component={Login} title="Login" initial={true}/>
-                <Route name="main" component={Main} wrapRouter={true} title="Main" hideNavBar={true}/>
-                <Route name="sampleImage" component={SampleImage} title="SampleImage"/>
+                <Route name="main" component={Main} wrapRouter={true} title="Main" hideNavBar={true} />
                 <Route name="beautyRequests" component={BeautyRequests} title="BeautyRequests"/>
+                <Route name="companyRegister" component={CompanyRegister} title="companyRegister"/>
             </Router>
         );
     }
