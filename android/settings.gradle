@@ -2,4 +2,6 @@ rootProject.name = 'reactProject'
 
 include ':app'
 include ':react-native-splashscreen'
+include ':react-native-vector-icons'
 project(':react-native-splashscreen').projectDir = new File(rootProject.projectDir, '../node_modules/@remobile/react-native-splashscreen/android')
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')

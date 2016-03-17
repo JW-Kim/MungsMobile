@@ -9,7 +9,7 @@ var {
   Animated,
 } = React;
 
-const Icon = require('react-native-vector-icons/Ionicons');
+const Icon = require('react-native-vector-icons/MaterialIcons');
 
 var styles = StyleSheet.create({
   tab: {
@@ -28,6 +28,7 @@ var styles = StyleSheet.create({
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderBottomColor: 'rgba(0,0,0,0.05)',
+    backgroundColor:'#B2EBF2'
   },
   icon: {
     position: 'absolute',

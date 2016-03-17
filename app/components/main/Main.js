@@ -52,9 +52,9 @@ class Main extends React.Component {
           renderNavigationView={() => renderNavigationView}>
             <Header openDrawer={()=>this.refs['DRAWER'].openDrawer()}/>
             <ScrollableTabView renderTabBar={() => <CustomTabBar someProp={'here'} />}>
-                <View tabLabel="android-home"></View>
-                <Beauty tabLabel="scissors" />
-                <Hospital tabLabel="병 원" />
+                <View tabLabel="store"></View>
+                <Beauty tabLabel="content-cut" />
+                <Hospital tabLabel="local-hospital" />
             </ScrollableTabView>
         </DrawerLayoutAndroid>
       );

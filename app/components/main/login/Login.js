@@ -50,13 +50,13 @@ class Login extends React.Component {
                         <TouchableHighlight onPress={this._goToPerson.bind(this)}>
                             <View style={{height:100, width:100, margin: 5, backgroundColor:'#B2EBF2', borderRadius:5, justifyContent: 'center',  alignItems: 'center'}}>
                                  <Icon name='person' size={30} color='#00BCD4'/>
-                                 <Text style={{color:'#ffffff'}}>개인</Text>
+                                 <Text style={{color:'#00BCD4'}}>개인</Text>
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={this._goToCompany.bind(this)}>
                             <View style={{height:100, width:100, margin: 5, backgroundColor:'#B2EBF2', borderRadius:5,justifyContent: 'center',  alignItems: 'center'}}>
                                 <Icon name='domain' size={30} color='#00BCD4'/>
-                                <Text style={{color:'#ffffff'}}>업체</Text>
+                                <Text style={{color:'#00BCD4'}}>업체</Text>
                             </View>
                         </TouchableHighlight>
                     </View>
