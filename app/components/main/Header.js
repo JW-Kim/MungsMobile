@@ -4,6 +4,8 @@ var React = require('react-native');
 var {View, TouchableHighlight, Image, Text, StyleSheet} = React;
 var {Router, Route, Schema, Animations, TabBar} = require('react-native-router-flux');
 
+var Icon = require('react-native-vector-icons/MaterialIcons');
+
 class Header extends React.Component {
 
     constructor(props, context) {
@@ -15,10 +17,7 @@ class Header extends React.Component {
             <View style={styles.container}>
                 <View style={styles.headerContainer}>
                     <TouchableHighlight onPress={() => this.props.openDrawer()}>
-                        <Image
-                           style={styles.menuImg}
-                           source={require('../../../assets/img/menu1.jpg')}
-                        />
+                        <Icon name='menu' size={30} color='#00BCD4'/>
                     </TouchableHighlight>
                     <View style={{flex:1, alignItems: 'center'}}>
                         <View style={{flexDirection:'row'}}>
@@ -28,10 +27,7 @@ class Header extends React.Component {
                             />
                         </View>
                     </View>
-                    <Image
-                       style={styles.menuImg}
-                       source={require('../../../assets/img/setting1.jpg')}
-                    />
+                    <Icon name='notifications' size={30} color='#00BCD4'/>
                 </View>
             </View>
         );
