@@ -11,6 +11,7 @@ var Header = require('./Header');
 var Beauty = require('./beauty/Beauty');
 var Hotel = require('./hotel/Hotel');
 var Hospital = require('./hospital/Hospital');
+var CustomTabBar = require('./CustomTabBar');
 
 class Main extends React.Component {
 
@@ -50,8 +51,9 @@ class Main extends React.Component {
           drawerPosition={DrawerLayoutAndroid.positions.Left}
           renderNavigationView={() => renderNavigationView}>
             <Header openDrawer={()=>this.refs['DRAWER'].openDrawer()}/>
-            <ScrollableTabView tabBarBackgroundColor='#4FC3F7' tabBarUnderlineColor='#0277BD' tabBarActiveTextColor='#0277BD' tabBarInactiveTextColor='#FFFFFF'>
-                <Beauty tabLabel="미 용" />
+            <ScrollableTabView renderTabBar={() => <CustomTabBar someProp={'here'} />}>
+                <View tabLabel="android-home"></View>
+                <Beauty tabLabel="scissors" />
                 <Hospital tabLabel="병 원" />
             </ScrollableTabView>
         </DrawerLayoutAndroid>
