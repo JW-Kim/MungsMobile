@@ -59,7 +59,7 @@ class Beauty extends React.Component {
         }
 
         return (
-            <View style={{flex:1, backgroundColor: '#f3f3f3'}}>
+            <View style={{flex:1, backgroundColor: '#ffffff'}}>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderBeauty}
@@ -102,7 +102,7 @@ class Beauty extends React.Component {
                     <View style={{flexDirection: 'row', height:100}}>
                         <Image
                             source={require('../../../../assets/img/dog1.jpg')}
-                            style={{width: 100, height:100}}
+                            style={{width: 100, height:100, borderRadius: 5}}
                         />
                         <View style={{flex:1, flexDirection: 'column'}}>
                             <View style={{paddingTop:7, paddingRight:10, alignItems:'flex-end'}}>
@@ -130,9 +130,9 @@ var styles = StyleSheet.create({
 
     container: {
         flexDirection: 'column',
-        borderColor: '#B3E5FC',
-        borderWidth: 1,
-        marginTop: 5
+        marginTop: 5,
+        borderRadius: 5,
+        backgroundColor:'#FAFAFA'
     },
 
     etc: {
