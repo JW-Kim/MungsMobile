@@ -8,6 +8,7 @@ var ScrollableTabView = require('react-native-scrollable-tab-view');
 
 var Nav = require('./Nav');
 var Header = require('./Header');
+var Store = require('./store/Store');
 var Beauty = require('./beauty/Beauty');
 var Hotel = require('./hotel/Hotel');
 var Hospital = require('./hospital/Hospital');
@@ -52,7 +53,7 @@ class Main extends React.Component {
           renderNavigationView={() => renderNavigationView}>
             <Header openDrawer={()=>this.refs['DRAWER'].openDrawer()}/>
             <ScrollableTabView renderTabBar={() => <CustomTabBar someProp={'here'} />}>
-                <View tabLabel="store"></View>
+                <Store tabLabel="store"/>
                 <Beauty tabLabel="content-cut" />
                 <Hospital tabLabel="local-hospital" />
             </ScrollableTabView>

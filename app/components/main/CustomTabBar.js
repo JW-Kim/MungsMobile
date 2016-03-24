@@ -11,32 +11,6 @@ var {
 
 const Icon = require('react-native-vector-icons/MaterialIcons');
 
-var styles = StyleSheet.create({
-  tab: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingBottom: 10,
-    backgroundColor:'#B2EBF2'
-  },
-  tabs: {
-    height: 45,
-    flexDirection: 'row',
-    paddingTop: 5,
-    borderWidth: 1,
-    borderTopWidth: 0,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    borderBottomColor: 'rgba(0,0,0,0.05)',
-    backgroundColor:'#B2EBF2'
-  },
-  icon: {
-    position: 'absolute',
-    top: 0,
-    left: 50
-  },
-});
-
 var CustomTabBar = React.createClass({
   selectedTabIcons: [],
   unselectedTabIcons: [],
@@ -114,6 +88,33 @@ var CustomTabBar = React.createClass({
         <Animated.View style={[tabUnderlineStyle, {left}]} />
       </View>
     );
+  },
+});
+
+
+var styles = StyleSheet.create({
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 10,
+    backgroundColor:'#B2EBF2'
+  },
+  tabs: {
+    height: 45,
+    flexDirection: 'row',
+    paddingTop: 5,
+    borderWidth: 1,
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderBottomColor: 'rgba(0,0,0,0.05)',
+    backgroundColor:'#B2EBF2'
+  },
+  icon: {
+    position: 'absolute',
+    top: 0,
+    left: 50
   },
 });
 

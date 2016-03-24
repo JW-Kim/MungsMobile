@@ -19,41 +19,45 @@ class Login extends React.Component {
     render(){
         return (
             <View style={{flex: 1, flexDirection: 'column',backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center'}}>
-                <View style={{flexDirection:'row', marginTop:100, marginBottom: 200}}>
+                <View style={{flex:4, flexDirection:'row', marginTop: 150}}>
                     <Image
                         source={require('../../../../assets/img/logo.jpg')}
-                        style={{width: 181, height:37}}
+                        style={{width: 250, height:50}}
+                        resizeMode={Image.resizeMode.contain}
                     />
                 </View>
 
-                <TouchableHighlight onPress={this._goToNaver.bind(this)}>
-                    <Image
-                        source={require('../../../../assets/img/naverLogin.jpg')}
-                        style={{width:300, height:50}}
-                    />
-                </TouchableHighlight>
-                <TouchableHighlight onPress={this._goToNaver.bind(this)} >
-                    <Image
-                        source={require('../../../../assets/img/cacaoLogin.jpg')}
-                        style={{width:300, height:50, marginTop: 5}}
-                    />
-                </TouchableHighlight>
+                <View style={{flex: 1, flexDirection:'row'}}>
+                    <TouchableHighlight onPress={this._goToNaver.bind(this)}>
+                        <Image
+                            source={require('../../../../assets/img/naverLogin.jpg')}
+                            style={{width:50, height:50}}
+                            resizeMode={Image.resizeMode.stretch}
+                        />
+                    </TouchableHighlight>
                     <TouchableHighlight onPress={this._goToNaver.bind(this)} >
-                    <Image
-                        source={require('../../../../assets/img/facebookLogin.jpg')}
-                        style={{width:300, height:50, marginTop: 5}}
-                    />
-                </TouchableHighlight>
+                        <Image
+                            source={require('../../../../assets/img/cacaoLogin.jpg')}
+                            style={{width:50, height:50, marginLeft: 5}}
+                        />
+                    </TouchableHighlight>
+                        <TouchableHighlight onPress={this._goToNaver.bind(this)} >
+                        <Image
+                            source={require('../../../../assets/img/facebookLogin.jpg')}
+                            style={{width:50, height:50, marginLeft: 5}}
+                        />
+                    </TouchableHighlight>
+                </View>
 
                 <Modal style={[styles.modal, {width: 250, height:140, borderRadius:5, backgroundColor:'#FAFAFA'}]} position={"center"} ref={"userTypeModal"} backdropPressToClose={false} swipeToClose={false} >
                     <View style={{flex:1, flexDirection:'row', justifyContent: 'center',  alignItems: 'center'}}>
-                        <TouchableHighlight onPress={this._goToPerson.bind(this)}>
+                        <TouchableHighlight onPress={this._goToPerson.bind(this)} underlayColor={'#E0F7FA'}>
                             <View style={{height:100, width:100, margin: 5, backgroundColor:'#B2EBF2', borderRadius:5, justifyContent: 'center',  alignItems: 'center'}}>
                                  <Icon name='person' size={30} color='#00BCD4'/>
                                  <Text style={{color:'#00BCD4'}}>개인</Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={this._goToCompany.bind(this)}>
+                        <TouchableHighlight onPress={this._goToCompany.bind(this)} underlayColor={'#E0F7FA'}>
                             <View style={{height:100, width:100, margin: 5, backgroundColor:'#B2EBF2', borderRadius:5,justifyContent: 'center',  alignItems: 'center'}}>
                                 <Icon name='domain' size={30} color='#00BCD4'/>
                                 <Text style={{color:'#00BCD4'}}>업체</Text>

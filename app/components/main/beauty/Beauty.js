@@ -66,8 +66,8 @@ class Beauty extends React.Component {
                     style={styles.listView}
                 />
                 <ActionButton
-                  buttonColor="rgba(231,76,60,1)">
-                    <ActionButton.Item buttonColor='#9b59b6' title="미용 요청" onPress={()=>Actions.beautyRequests({req: req})}>
+                  buttonColor="#F06292">
+                    <ActionButton.Item buttonColor='#F48FB1' title="미용 요청" onPress={()=>Actions.beautyRequests({req: req})}>
                         <Image
                             source={require('../../../../assets/img/ic_description.jpg')}
                             style={{width: 20, height:20}}
@@ -131,6 +131,8 @@ var styles = StyleSheet.create({
     container: {
         flexDirection: 'column',
         marginTop: 5,
+        marginLeft:5,
+        marginRight:7,
         borderRadius: 5,
         backgroundColor:'#FAFAFA'
     },
