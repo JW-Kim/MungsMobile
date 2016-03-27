@@ -6,9 +6,9 @@ var {StyleSheet, ScrollView, View, Text, TouchableWithoutFeedback, Image} = Reac
 var Actions = require('react-native-router-flux').Actions;
 const Icon = require('react-native-vector-icons/MaterialIcons');
 
-var Star = require('./Star.js');
+var Star = require('../store/Star.js');
 
-class StoreDetail extends React.Component {
+class CompanyDetail extends React.Component {
 
     constructor(props, context) {
         super(props, context);
@@ -26,7 +26,7 @@ class StoreDetail extends React.Component {
                             style={{width:containerWidth ,height:250, borderRadius: 5}}
                             resizeMode={Image.resizeMode.stretch}
                         />
-                        <View style={{height:100, flexDirection:'row', marginTop:5}}>
+                        <View style={{height:120, flexDirection:'row', marginTop:5}}>
                             <View style={{flex:1, flexDirection:'column', alignItems: 'center', paddingTop:10}}>
                                  <View style={{height:50, width:50}}>
                                      <Image
@@ -38,14 +38,15 @@ class StoreDetail extends React.Component {
                                  </Text>
                             </View>
                             <View style={{flex:3, flexDirection:'column', paddingTop:10, paddingLeft:10}}>
-                                <View style={{flexDirection:'row', alignItems: 'center'}}>
+                                <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
                                     <Text style={{fontSize:15, fontWeight:'bold', marginRight:3}}>BABY PET SHOP</Text>
                                     <Icon name={'content-cut'} size={15} color='#FB8C00'/>
                                     <Icon name={'local-hospital'} size={17} color='#F44336'/>
                                     <Icon name={'hotel'} size={17} color='#2E7D32' style={{marginLeft:2}}/>
                                 </View>
-                                <Text style={{fontSize:10, color:'#BDBDBD', marginTop:5, marginBottom:10}}>BABY PET SHOP은 강아지 입양에서 부터 사후 관리까지...</Text>
                                 <Star/>
+                                <Text style={{flex:1, fontSize:11, fontWeight:'bold', color:'#BDBDBD', marginTop:5}}>입찰 금액 : 30,000 원</Text>
+                                <Text style={{flex:1, fontSize:11, fontWeight:'bold', color:'#BDBDBD', marginBottom:5}}>추가 서비스 : 샹푸와 부분 염색 더해줄께요ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</Text>
                             </View>
                         </View>
 
@@ -61,4 +62,4 @@ var styles = StyleSheet.create({
 
 })
 
-module.exports = StoreDetail;
+module.exports = CompanyDetail;

@@ -22,10 +22,10 @@ class Region extends React.Component {
     render(){
         return(
             <View style={{flex:1, flexDirection:'column'}}>
-                <View style={{height:45, backgroundColor: '#0277BD', flexDirection:'row', alignItems: 'center'}}>
+                <View style={{height:45, backgroundColor: '#B2EBF2', flexDirection:'row', alignItems: 'center'}}>
                     <View style={{width:50}}></View>
-                    <Text style={{flex: 1, color:'#fff', textAlign:'center', fontWeight:'bold'}}>지역 선택</Text>
-                    <Text style={{width:50, color:'#fff'}} onPress={this.props.closeRegionModal}>닫기</Text>
+                    <Text style={{flex: 1, color:'#00BCD4', textAlign:'center', fontWeight:'bold'}}>지역 선택</Text>
+                    <Text style={{width:50, color:'#00BCD4'}} onPress={this.props.closeRegionModal}>닫기</Text>
                 </View>
                 <ScrollView style={{flex: 1}}>
                     <Accordion
@@ -41,7 +41,7 @@ class Region extends React.Component {
 
     renderHeader(section, i, isActive){
         return(
-            <View style={{flexDirection:'row', height: 50, alignItems: 'center', paddingLeft:10, borderWidth:0.5, borderColor:'#a9a9a9'}}>
+            <View style={{flexDirection:'row', height: 50, alignItems: 'center', paddingLeft:10, borderWidth:0.5, borderColor:'#E0F7FA'}}>
                 <Text style={{marginLeft:10 }}>{section.coNm}</Text>
             </View>
         )
@@ -59,8 +59,8 @@ class Region extends React.Component {
 
     renderRegionList(region){
         return(
-            <View style={{  flex:1, flexDirection:'row', height: 30, alignItems: 'center', justifyContent: 'center', backgroundColor:'#F5F5F5',
-                            borderWidth:0.5, borderColor:'#a9a9a9'}} key={region.coCd}>
+            <View style={{  flex:1, flexDirection:'row', height: 30, alignItems: 'center', justifyContent: 'center', backgroundColor:'#FAFAFA',
+                            borderWidth:0.5, borderColor:'#E0F7FA'}} key={region.coCd}>
                 <Text style={{}}>{region.coNm}</Text>
             </View>
         )

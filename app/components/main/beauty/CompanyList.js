@@ -1,9 +1,14 @@
 'use strict';
 
 var React = require('react-native');
-var {View, Text, StyleSheet, Image, ListView, TouchableWithoutFeedback} = React;
-var Companies = require('./company.json');
+var {View, Text, StyleSheet, Image, ListView, TouchableWithoutFeedback, TouchableHighlight} = React;
+
+var Actions = require('react-native-router-flux').Actions;
 var Button = require('react-native-button');
+const Icon = require('react-native-vector-icons/MaterialIcons');
+
+var Companies = require('./company.json');
+var CompanyDetail = require('./CompanyDetail.js');
 
 class CompanyList extends React.Component {
     constructor(props) {
@@ -18,48 +23,39 @@ class CompanyList extends React.Component {
     }
 
     componentDidMount(){
-        if(this.props.req.id != ''){
-            this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(Companies.companyList),
-                loaded: true,
-            });
-        }
+        this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(Companies.companyList),
+            loaded: true,
+        });
     }
 
     render(){
         return(
-            <View style={{flexDirection: 'column'}}>
-                <View style={{  borderWidth:this.props.req.id == '' ? 0 : 2
-                                ,borderColor:'#B3E5FC'
-                                ,backgroundColor:'#E1F5FE'}}>
-                    <ListView
-                        dataSource={this.state.dataSource}
-                        renderRow={this.renderCompany.bind(this)}
-                    />
+            <View style={{flex:1, flexDirection:'column', backgroundColor:'#ffffff'}}>
+
+                <View style={{flexDirection: 'row', backgroundColor: '#B2EBF2',height : 45,alignItems: 'center'}}>
+                    <TouchableHighlight onPress={Actions.pop} style={{width: 45}} underlayColor={'#E0F7FA'}>
+                        <View style={{width:45, height:45, alignItems: 'center', justifyContent: 'center'}}>
+                            <Icon name='chevron-left' size={30} color='#00BCD4'/>
+                        </View>
+                    </TouchableHighlight>
+                    <Text style={{color:'#00BCD4', flex: 1, textAlign:'center',fontWeight:'bold'}}>업체 등록</Text>
+                    <View style={{width:45}}></View>
                 </View>
 
-            </View>    
+                <View style={{flex:1}}>
+                    <ListView
+                        dataSource={this.state.dataSource}
+                        renderRow={this._renderCompany.bind(this)}
+                    />
+                </View>
+            </View>
         )
     }
 
-    renderCompany(company){
+    _renderCompany(company){
         return(
-            <TouchableWithoutFeedback>
-                <View style={{flexDirection:'row', marginTop:3}}>
-                    <Text style={{flex:1,fontSize: 15, marginLeft:5,  color: '#101010'}}>{company.companyNm}</Text>
-                    <View style={{flex:1, flexDirection:'row', alignItems: 'center'}}>
-                        <Text style={{fontSize: 15,  color: '#101010'}}>{company.price}원</Text>
-                        <View style={{backgroundColor:'#F06292', marginLeft:10}}>
-                            <Text style={{fontSize: 10,  color: '#ffffff'}}>추가서비스</Text>
-                        </View>
-                    </View>
-                    <Button containerStyle={{flex:0.5, height: 25, borderRadius:4, backgroundColor: '#616161', marginRight: 5}}
-                            style={{fontSize: 15, color: 'white', height:25}}
-                            onPress={this.props.openCompanyDetailModal}>
-                        상세보기
-                    </Button>
-                </View>
-            </TouchableWithoutFeedback>
+            <CompanyDetail/>
         )
     }
 }

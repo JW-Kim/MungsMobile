@@ -6,6 +6,7 @@ var {View, Text, StyleSheet, TouchableHighlight, Image, TextInput, ScrollView} =
 var Modal   = require('react-native-modalbox');
 var Button = require('react-native-button');
 var Accordion = require('react-native-collapsible/Accordion');
+var Icon = require('react-native-vector-icons/MaterialIcons');
 
 var AppStore = require('../../../stores/AppStore');
 var AppActions = require('../../../actions/AppActions');
@@ -54,130 +55,154 @@ class BeautyRequests extends React.Component {
 
     render(){
         return(
-            <View style={{flex: 1, flexDirection: 'column'}}>
-                <View style={styles.headerContainer}>
-                    <TouchableHighlight onPress={Actions.pop} style={{width: 30}}>
-                        <View style={{height: 50, width: 30, justifyContent: 'center', alignItems: 'center'}}>
-                            <Image
-                                source={require('../../../../assets/img/ic_navigate_before.png')}
-                                style={{height: 30, width: 30}}
-                            />
+            <View style={{flex: 1, flexDirection: 'column', backgroundColor:'#fff'}}>
+
+                <View style={{flexDirection: 'row', backgroundColor: '#B2EBF2',height : 45,alignItems: 'center'}}>
+                    <TouchableHighlight onPress={Actions.pop} style={{width: 45}} underlayColor={'#E0F7FA'}>
+                        <View style={{width:45, height:45, alignItems: 'center', justifyContent: 'center'}}>
+                            <Icon name='chevron-left' size={30} color='#00BCD4'/>
                         </View>
                     </TouchableHighlight>
-                    <Text style={styles.title}>미용 요청서</Text>
-                    <Text style={styles.back}></Text>
+                    <Text style={{color:'#00BCD4', flex: 1, textAlign:'center',fontWeight:'bold'}}>미용 요청서</Text>
+                    <View style={{width:45}}></View>
                 </View>
 
                 <ScrollView ref='_scrollView'
                     onContentSizeChange={(newSize)=>{
                         _scrollToBottomY = newSize;
-                    }}>
+                    }}
+                    style={{flex:1, flexDirection:'column', marginTop:5, marginLeft:5, marginRight:7}}>
+
                     <View style={{backgroundColor: '#E0E0E0',height: 150, justifyContent: 'center', alignItems: 'center'}}>
                         <Image
                             source={require('../../../../assets/img/ic_add_a_photo_white.jpg')}
                             style={{height: 50, width: 50}}
                         />
                     </View>
-                    <View style={styles.content}>
-                        <View style={{flexDirection: 'row',height:20}}>
-                            <Text style={{marginLeft: 15, fontWeight:'bold'}}>동물 종류 </Text><Text style={{color:'#B71C1C'}}>*</Text>
-                        </View>
-                        <TouchableHighlight onPress={this._openAnimalTypeModal.bind(this)} underlayColor='#c0c0c0'>
-                            <View style={styles.type}>
-                                <View style={{flex:6}}>
-                                    <Text style={{marginLeft:10, marginTop:12}}>
-                                        원하는 동물을 선택하세요.
-                                    </Text>
-                                </View>
-                                <View style={{flex:1, borderLeftWidth :1 ,borderLeftColor:'#a9a9a9', justifyContent: 'center', alignItems: 'center'}}>
-                                    <Image
-                                        source={require('../../../../assets/img/ic_arrow_drop_down_black.jpg')}
-                                        style={{height: 30, width: 30}}
-                                    />
-                                </View>
-                            </View>
-                        </TouchableHighlight>
 
-                        <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
-                            <Text style={{marginLeft: 15, fontWeight:'bold'}}>품 종 </Text><Text style={{color:'#B71C1C'}}>*</Text>
-                        </View>
-                        <TouchableHighlight onPress={this._openBreedModal.bind(this)} underlayColor='#c0c0c0'>
-                            <View style={styles.type}>
-                                <View style={{flex:6}}>
-                                    <Text style={{marginLeft:10, marginTop:12}}>
-                                        품종을 선택하세요. {this.state.typeCd}
-                                    </Text>
-                                </View>
-                                <View style={{flex:1, borderLeftWidth :1 ,borderLeftColor:'#a9a9a9', justifyContent: 'center', alignItems: 'center'}}>
-                                    <Image
-                                        source={require('../../../../assets/img/ic_arrow_drop_down_black.jpg')}
-                                        style={{height: 30, width: 30}}
-                                    />
-                                </View>
+                    <View style={{height:50, flexDirection:'column',marginTop:5, backgroundColor:'#FAFAFA'}}>
+                        <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
+                            <View style={{width:100, flexDirection:'row'}}>
+                                <Text style={{marginLeft: 15, fontWeight:'bold'}}>동물 종류 </Text>
+                                <Text style={{color:'#B71C1C'}}>*</Text>
                             </View>
-                        </TouchableHighlight>
-
-                        <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
-                            <Text style={{marginLeft: 15, fontWeight:'bold'}}>몸무게 </Text><Text style={{color:'#B71C1C'}}>*</Text>
+                            <TouchableHighlight onPress={this._openAnimalTypeModal.bind(this)} underlayColor='#c0c0c0' style={{flex:1}}>
+                                <View style={{flex:1, flexDirection: 'row', height:40, alignItems: 'center', marginRight:10
+                                              ,borderWidth:1, borderColor:'#a9a9a9', borderRadius: 10 }}>
+                                    <View style={{flex:6, alignItems: 'center', justifyContent: 'center'}}>
+                                        <Text style={{}}>
+                                            원하는 동물을 선택하세요.
+                                        </Text>
+                                    </View>
+                                    <View style={{flex:1, borderLeftWidth :1 ,borderLeftColor:'#a9a9a9', justifyContent: 'center', alignItems: 'center'}}>
+                                        <Image
+                                            source={require('../../../../assets/img/ic_arrow_drop_down_black.jpg')}
+                                            style={{height: 30, width: 30}}
+                                        />
+                                    </View>
+                                </View>
+                            </TouchableHighlight>
                         </View>
-                        <View style={{flexDirection:'row', }}>
+                    </View>
+
+                    <View style={{height:50, flexDirection:'column',marginTop:5, backgroundColor:'#FAFAFA'}}>
+                        <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
+                            <View style={{width:100, flexDirection:'row'}}>
+                                <Text style={{marginLeft: 15, fontWeight:'bold'}}>품 종 </Text>
+                                <Text style={{color:'#B71C1C'}}>*</Text>
+                            </View>
+                            <TouchableHighlight onPress={this._openBreedModal.bind(this)} underlayColor='#c0c0c0' style={{flex:1}}>
+                                <View style={{flex:1, flexDirection: 'row', height:40, alignItems: 'center', marginRight:10
+                                              ,borderWidth:1, borderColor:'#a9a9a9', borderRadius: 10 }}>
+                                    <View style={{flex:6, alignItems: 'center', justifyContent: 'center'}}>
+                                        <Text style={{}}>
+                                            품종을 선택하세요. {this.state.typeCd}
+                                        </Text>
+                                    </View>
+                                    <View style={{flex:1, borderLeftWidth :1 ,borderLeftColor:'#a9a9a9', justifyContent: 'center', alignItems: 'center'}}>
+                                        <Image
+                                            source={require('../../../../assets/img/ic_arrow_drop_down_black.jpg')}
+                                            style={{height: 30, width: 30}}
+                                        />
+                                    </View>
+                                </View>
+                            </TouchableHighlight>
+                        </View>
+                    </View>
+
+                    <View style={{height:50, marginTop:5, backgroundColor:'#FAFAFA'}}>
+                        <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
+                            <View style={{width:100, flexDirection:'row'}}>
+                                <Text style={{marginLeft: 15, fontWeight:'bold'}}>몸무게 </Text>
+                                <Text style={{color:'#B71C1C'}}>*</Text>
+                            </View>
                             <TextInput
-                                style={{height: 40, borderColor: 'gray', borderWidth: 1, marginLeft:10, width:100}}
+                                style={{flex:1, height: 40, borderColor: 'gray', borderWidth: 1, marginLeft:10 }}
                                 onChangeText={(weight) => this.setState({weight})}
                                 value={this.state.weight}
                                 placeholder='(예 2.5)'
-                             />
-                             <View style={{marginLeft:5, marginTop:15}}><Text>Kg</Text></View>
-                         </View>
-
-                        <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
-                             <Text style={{marginLeft: 15, fontWeight:'bold'}}>지역 선택 </Text><Text style={{color:'#B71C1C'}}>*</Text>
+                                placeholderTextColor='#BDBDBD'
+                            />
+                            <Text style={{marginRight:10}}>kg</Text>
                         </View>
-                        <TouchableHighlight onPress={this._openRegionModal.bind(this)} underlayColor='#c0c0c0'>
-                            <View style={styles.type}>
-                                <View style={{flex:6}}>
-                                    <Text style={{marginLeft:10, marginTop:12}}>
-                                        지역을 선택하세요. {this.state.typeCd}
-                                    </Text>
-                                </View>
-                                <View style={{flex:1, borderLeftWidth :1 ,borderLeftColor:'#a9a9a9', justifyContent: 'center', alignItems: 'center'}}>
-                                    <Image
-                                        source={require('../../../../assets/img/ic_arrow_drop_down_black.jpg')}
-                                        style={{height: 30, width: 30}}
-                                    />
-                                </View>
+                    </View>
+
+                    <View style={{height:50, flexDirection:'column',marginTop:5, backgroundColor:'#FAFAFA'}}>
+                        <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
+                            <View style={{width:100, flexDirection:'row'}}>
+                                <Text style={{marginLeft: 15, fontWeight:'bold'}}>지역 선택 </Text>
+                                <Text style={{color:'#B71C1C'}}>*</Text>
                             </View>
-                        </TouchableHighlight>
-
-                        <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
-                             <Text style={{marginLeft: 15, fontWeight:'bold'}}>스타일 </Text><Text style={{color:'#B71C1C'}}>*</Text>
+                            <TouchableHighlight onPress={this._openRegionModal.bind(this)} underlayColor='#c0c0c0' style={{flex:1}}>
+                                <View style={{flex:1, flexDirection: 'row', height:40, alignItems: 'center', marginRight:10
+                                              ,borderWidth:1, borderColor:'#a9a9a9', borderRadius: 10 }}>
+                                    <View style={{flex:6, alignItems: 'center', justifyContent: 'center'}}>
+                                        <Text style={{}}>
+                                            지역을 선택하세요. {this.state.typeCd}
+                                        </Text>
+                                    </View>
+                                    <View style={{flex:1, borderLeftWidth :1 ,borderLeftColor:'#a9a9a9', justifyContent: 'center', alignItems: 'center'}}>
+                                        <Image
+                                            source={require('../../../../assets/img/ic_arrow_drop_down_black.jpg')}
+                                            style={{height: 30, width: 30}}
+                                        />
+                                    </View>
+                                </View>
+                            </TouchableHighlight>
                         </View>
+                    </View>
 
-                        <View style={{flexDirection: 'row',height:20, marginTop: 10}}>
-                             <Text style={{marginLeft: 15, fontWeight:'bold'}}>요구사항 </Text><Text style={{color:'#B71C1C'}}>*</Text>
+                    <View style={{height:50, flexDirection:'column',marginTop:5, backgroundColor:'#FAFAFA'}}>
+                        <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
+                            <View style={{width:80, flexDirection:'row'}}>
+                                <Text style={{marginLeft: 15, fontWeight:'bold'}}>스타일 </Text>
+                                <Text style={{color:'#B71C1C'}}>*</Text>
+                            </View>
                         </View>
-                        <TextInput
-                            style={{height: 40, borderColor: 'gray', borderWidth: 1, marginLeft:10, marginRight:10}}
-                            onChangeText={(requirements) => this.setState({requirements})}
-                            value={this.state.requirements}
-                            placeholder='(예 : 부분 염색해주세요 )'
-                         />
+                    </View>
+
+                    <View style={{height:50, marginTop:5, backgroundColor:'#FAFAFA'}}>
+                        <View style={{flex:1, flexDirection: 'row', alignItems: 'center'}}>
+                            <View style={{width:100, flexDirection:'row'}}>
+                                <Text style={{marginLeft: 15, fontWeight:'bold'}}>요구사항 </Text>
+                                <Text style={{color:'#B71C1C'}}>*</Text>
+                            </View>
+                            <TextInput
+                                style={{flex:1, height: 40, borderColor: 'gray', borderWidth: 1, marginLeft:10 }}
+                                onChangeText={(requirements) => this.setState({requirements})}
+                                value={this.state.requirements}
+                                placeholder='(예 : 부분 염색해주세요 )'
+                                placeholderTextColor='#BDBDBD'
+                            />
+                        </View>
                     </View>
 
                     <Button containerStyle={{marginTop: 15, marginBottom:5, marginLeft:5, marginRight:5,
-                                            padding: this.props.req.id == '' ? 10 : 0,
-                                            height:this.props.req.id == '' ? 45 : 0, overflow:'hidden', borderRadius:4, backgroundColor: '#03A9F4'}}
-                            style={{fontSize: 15, color: 'white', height:this.props.req.id == '' ? 45 : 0}}
-                            onPress={this._send}>
-                        미용 요청하기
+                                            padding: 10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#00BCD4'}}
+                            style={{fontSize: 15, color: 'white', height:45}}
+                            onPress={this._send.bind(this)}>
+                            {this.props.req.id == '' ? '미용 요청하기' : '입찰한 업체 리스트 (4건)'}
                     </Button>
-
-                    <Accordion
-                        sections={[{title:'입찰한 업체 리스트 (4건)'}]}
-                        renderHeader={this._renderHeader.bind(this)}
-                        renderContent={this._renderContent.bind(this)}
-                        onChange={this._chgAccordion.bind(this)}
-                    />
 
                 </ScrollView>
 
@@ -206,27 +231,10 @@ class BeautyRequests extends React.Component {
         )
     }
 
-    _renderHeader(section, i, isActive){
-        return(
-            <View style={{flexDirection:'row', height: this.props.req.id == '' ? 0 : 50, alignItems: 'center', paddingLeft:10, borderWidth:1, borderColor:'#29B6F6', backgroundColor:'#81D4FA'}}>
-               <Image
-                    source={require('../../../../assets/img/ic_group.jpg')}
-                    style={{height:this.props.req.id == '' ? 0 : 20,width: 20, marginLeft: 15}}
-                />
-                <Text style={{marginLeft:10, height:this.props.req.id == '' ? 0 : 20 }}>{section.title}</Text>
-            </View>
-        )
-    }
-
-    _renderContent(section, i, isActive){
-        return(
-            <CompanyList req={this.props.req} openCompanyDetailModal={this._openCompanyDetailModal.bind(this)}/>
-        )
-    }
-
-    _chgAccordion(index){
-        setTimeout(() => {this.refs._scrollView.scrollTo(_scrollToBottomY);},100
-        );
+    _send(){
+        if(this.props.req.id != ''){
+            Actions.companyList();
+        }
     }
 
     openTypeModal() {
@@ -248,7 +256,6 @@ class BeautyRequests extends React.Component {
     _openCompanyDetailModal(){
         this.refs.companyDetailModal.open();
     }
-
 
     _closeRegionModal(){
         this.refs.regionModal.close();
